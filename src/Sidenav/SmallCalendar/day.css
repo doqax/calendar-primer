@@ -1,0 +1,21 @@
+.smallCalendar--day {
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.smallCalendar--day:hover {
+  background-color: #dbedff;
+}
+
+.smallCalendar--day.currentMonth:hover {
+  background-color: #dbedff;
+}
+
+.smallCalendar--day.currentMonth {
+  background-color: transparent;
+}
+
+.smallCalendar--day.today {
+  background-color: #2188ff;
+}
