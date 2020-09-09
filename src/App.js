@@ -12,14 +12,17 @@ function App() {
 
   const [selectedCalendar, setSelectedCalendar] = useState({
     selected: "month",
-    settings: "settings",
+    sidenav: false,
+    settings: false,
   });
   console.log(selectedCalendar);
+
+  const gridTemplateColumns = selectedCalendar.sidenav ? "260px 1fr": "0px 1fr";
 
   return (
     <div className="App">
       <Grid
-        gridTemplateColumns={["260px 1fr"]}
+        gridTemplateColumns={gridTemplateColumns}
         gridTemplateRows="60px 1fr"
         height="100vh"
       >

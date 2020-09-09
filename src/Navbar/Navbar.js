@@ -23,11 +23,12 @@ function Navbar({
       return (
         <div className="navbar">
           <Flex flexWrap="wrap" alignItems="center" backgroundColor="white">
-            <div className="logo"></div>
             <LeftSide
               setGlobalDate={setGlobalDate}
               globalDate={globalDate}
               setSmallCalendarDate={setSmallCalendarDate}
+              selectedCalendar={selectedCalendar}
+              setSelectedCalendar={setSelectedCalendar}
             />
             <RightSide
               selectedCalendar={selectedCalendar}

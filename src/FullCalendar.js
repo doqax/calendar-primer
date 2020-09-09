@@ -20,10 +20,12 @@ function FullCalendar({
             globalDate={globalDate}
             selectedCalendar={selectedCalendar}
           />
-          <Sidenav
-            smallCalendarDate={smallCalendarDate}
-            setSmallCalendarDate={setSmallCalendarDate}
-          />
+          {selectedCalendar.sidenav ? (
+            <Sidenav
+              smallCalendarDate={smallCalendarDate}
+              setSmallCalendarDate={setSmallCalendarDate}
+            />
+          ) : null}
         </>
       );
   }

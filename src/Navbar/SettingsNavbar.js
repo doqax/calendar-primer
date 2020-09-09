@@ -1,19 +1,19 @@
 import React from "react";
 
 import { Flex, Button } from "@primer/components";
+import { ChevronLeftIcon } from "@primer/octicons-react";
 
 function SettingsNavbar({ setSelectedCalendar, selectedCalendar }) {
   return (
     <Flex flexWrap="wrap" alignItems="center" backgroundColor="white">
-      <div className="logo"></div>
       <Button
         mx={2}
         onClick={() => {
           const selected = selectedCalendar.selected;
-          setSelectedCalendar({ selected, settings: false });
+          setSelectedCalendar({ selected, settings: false, sidenav: selectedCalendar.sidenav });
         }}
       >
-        Return
+        <ChevronLeftIcon />
       </Button>
       <h3>Settings</h3>
     </Flex>

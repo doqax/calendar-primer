@@ -10,7 +10,11 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
       <Button
         mr={3}
         onClick={() => {
-          setSelectedCalendar({ selected: "agenda" });
+          setSelectedCalendar({
+            settings: false,
+            selected: "agenda",
+            sidenav: selectedCalendar.sidenav,
+          });
         }}
       >
         <ListUnorderedIcon />
@@ -22,7 +26,11 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
         <Dropdown.Menu direction="sw">
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar({ settings: false, selected: "day" });
+              setSelectedCalendar({
+                settings: false,
+                selected: "day",
+                sidenav: selectedCalendar.sidenav,
+              });
               document.body.click();
             }}
           >
@@ -30,7 +38,11 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar({ settings: false, selected: "week" });
+              setSelectedCalendar({
+                settings: false,
+                selected: "week",
+                sidenav: selectedCalendar.sidenav,
+              });
               document.body.click();
             }}
           >
@@ -38,7 +50,11 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar({ settings: false, selected: "month" });
+              setSelectedCalendar({
+                settings: false,
+                selected: "month",
+                sidenav: selectedCalendar.sidenav,
+              });
               document.body.click();
             }}
           >
@@ -49,8 +65,11 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
       <Button
         ml={3}
         onClick={() => {
-          const selected = selectedCalendar.selected;
-          setSelectedCalendar({ settings: "settings", selected });
+          setSelectedCalendar({
+            settings: "settings",
+            selected: selectedCalendar.selected,
+            sidenav: selectedCalendar.sidenav,
+          });
           document.body.click();
         }}
       >
