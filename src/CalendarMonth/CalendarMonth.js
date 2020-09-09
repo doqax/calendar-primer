@@ -5,11 +5,11 @@ import { Box } from "@primer/components";
 
 import CalendarRows from "./CalendarRows";
 
-moment.updateLocale("fr", {
-  week: {
-    dow: 1,
-  },
-});
+// moment.updateLocale("fr", {
+//   week: {
+//     dow: 1,
+//   },
+// });
 
 function CalendarMonth({ globalDate }) {
   return (

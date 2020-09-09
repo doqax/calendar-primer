@@ -3,7 +3,7 @@ import React from 'react';
 import { Text } from "@primer/components";
 
 function OneLetterWeekDay() {
-  let days = "M-T-W-T-F-S-S";
+  let days = "S-M-T-W-T-F-S"; // "M-T-W-T-F-S-S"
   days = days.split("-");
   const weekday = days.map((day, i) => (
     <Text

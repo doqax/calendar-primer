@@ -1,9 +1,11 @@
 import React from "react";
 import moment from "moment/min/moment-with-locales";
 
+// utils
 import isWeekend from "../utils/isWeekend";
 import isHoliday from "../utils/isHoliday";
 
+// config
 import filterMonthHolidays from "../config/filterMonthHolidays";
 
 import Day from "./Day";
@@ -14,7 +16,8 @@ function daysPreviousMonth(firstDay, globalDate) {
     .startOf("month")
     .subtract(firstDay, "days")
     .format("D");
-  const weekDaysShort = moment.weekdays(true); // true === european week
+  const weekDaysShort = moment.weekdaysShort(); // true === european week
+  console.log(weekDaysShort);
   const blanks = [];
 
   const sum = parseInt(countDays) + parseInt(firstDay);
@@ -26,7 +29,7 @@ function daysPreviousMonth(firstDay, globalDate) {
         dayColor="gray.4"
         day={i}
         header={weekDaysShort[i - countDays]}
-        isHoliday={[]}
+        isHoliday={[]} // ${isWeekend(currentDay.isoDay)}
         date={moment(date).add(i - 1, "days")}
       />
     );
@@ -36,7 +39,7 @@ function daysPreviousMonth(firstDay, globalDate) {
 }
 
 function daysInMonth(firstDay, globalDate) {
-  const weekDaysShort = moment.weekdays(true);
+  const weekDaysShort = moment.weekdaysShort();
   const daysInMonth = moment(globalDate).daysInMonth();
   const currentDay = {
     day: parseInt(moment(globalDate).format("D")),
@@ -58,9 +61,7 @@ function daysInMonth(firstDay, globalDate) {
       <Day
         key={i}
         dayColor={currentDay.className}
-        tableStyle={`day-${i} ${currentDay.className} ${isWeekend(
-          currentDay.isoDay
-        )}`}
+        tableStyle={`day-${i} ${currentDay.className}`} // ${isWeekend(currentDay.isoDay)}
         day={i === 1 ? currentDay.todayFormat : i}
         header={firstDay <= 6 ? weekDaysShort[firstDay] : ""}
         isHoliday={isHoliday(holidays, i)}
@@ -94,7 +95,7 @@ function daysNextMonth(
         tableStyle={`blanks`}
         dayColor="gray.4"
         day={i}
-        isHoliday={[]}
+        isHoliday={[]} // ${isWeekend(currentDay.isoDay)}
         date={moment(globalDate)
           .startOf("month")
           .add(1, "month")
@@ -107,8 +108,8 @@ function daysNextMonth(
 }
 
 function CalendarRows({ globalDate }) {
-  const firstDayOfMonth = moment(globalDate).startOf("month").format("e");
-  const lastDayOfMonth = moment(globalDate).endOf("month").format("e");
+  const firstDayOfMonth = moment(globalDate).startOf("month").format("d");
+  const lastDayOfMonth = moment(globalDate).endOf("month").format("d");
 
   const totalSlots = [
     ...daysPreviousMonth(firstDayOfMonth, globalDate),

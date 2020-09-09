@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Grid
-        gridTemplateColumns="260px 1fr"
+        gridTemplateColumns={["260px 1fr"]}
         gridTemplateRows="60px 1fr"
         height="100vh"
       >
