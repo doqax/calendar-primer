@@ -2,6 +2,9 @@ import React from "react";
 import moment from "moment/min/moment-with-locales";
 import { holidays } from "../holidays";
 
+import isWeekend from "../utils/isWeekend";
+import isHoliday from "../utils/isHoliday";
+
 import Day from "./Day";
 
 function daysPreviousMonth(firstDay, globalDate) {
@@ -134,15 +137,6 @@ function CalendarRows({ globalDate }) {
   return CalendarRows;
 }
 
-function isWeekend(isoDay) {
-  const saturday = 5;
-  const sunday = 6;
-  if (isoDay === saturday || isoDay === sunday) {
-    return "weekend";
-  } else {
-    return "";
-  }
-}
 
 function filterMonthHolidays(globalDate) {
   const holidaysInCurrentMonth = holidays.filter((holiday) => {
@@ -174,15 +168,5 @@ function filterMonthHolidays(globalDate) {
   return holidaysInCurrentMonth;
 }
 
-function isHoliday(holidays, day) {
-  const isHoliday = holidays.filter((holiday) => {
-    if (parseInt(holiday.start) <= day && parseInt(holiday.end) >= day) {
-      return holiday;
-    }
-    return null;
-  });
-
-  return isHoliday;
-}
 
 export default CalendarRows;
