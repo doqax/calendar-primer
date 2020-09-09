@@ -1,5 +1,6 @@
 import moment from "moment";
 
+// temporary solution, will most likely have an API for that kind of stuff
 export const holidays = [
   {
     from: moment("2020-09-01"),
