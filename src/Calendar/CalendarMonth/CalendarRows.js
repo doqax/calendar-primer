@@ -2,8 +2,8 @@ import React from "react";
 import moment from "moment/min/moment-with-locales";
 
 // utils
-import isWeekend from "../utils/isWeekend";
-import isHoliday from "../utils/isHoliday";
+// import isWeekend from "../../utils/isWeekend";
+import isHoliday from "../../utils/isHoliday";
 
 // config
 import filterMonthHolidays from "../config/filterMonthHolidays";
@@ -17,7 +17,6 @@ function daysPreviousMonth(firstDay, globalDate) {
     .subtract(firstDay, "days")
     .format("D");
   const weekDaysShort = moment.weekdaysShort(); // true === european week
-  console.log(weekDaysShort);
   const blanks = [];
 
   const sum = parseInt(countDays) + parseInt(firstDay);

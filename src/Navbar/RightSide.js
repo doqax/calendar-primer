@@ -10,19 +10,19 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
       <Button
         mr={3}
         onClick={() => {
-          setSelectedCalendar("agenda");
+          setSelectedCalendar({ selected: "agenda" });
         }}
       >
         <ListUnorderedIcon />
       </Button>
       <Dropdown overlay={true}>
         <Dropdown.Button>
-          {capitalizeFirstLetter(selectedCalendar)}
+          {capitalizeFirstLetter(selectedCalendar.selected)}
         </Dropdown.Button>
         <Dropdown.Menu direction="sw">
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar("day");
+              setSelectedCalendar({ settings: false, selected: "day" });
               document.body.click();
             }}
           >
@@ -30,7 +30,7 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar("week");
+              setSelectedCalendar({ settings: false, selected: "week" });
               document.body.click();
             }}
           >
@@ -38,7 +38,7 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar("month");
+              setSelectedCalendar({ settings: false, selected: "month" });
               document.body.click();
             }}
           >
@@ -46,12 +46,15 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Button ml={3}>
-        <GearIcon
-          onClick={() => {
-            setSelectedCalendar("month");
-          }}
-        />
+      <Button
+        ml={3}
+        onClick={() => {
+          const selected = selectedCalendar.selected;
+          setSelectedCalendar({ settings: "settings", selected });
+          document.body.click();
+        }}
+      >
+        <GearIcon />
       </Button>
     </Box>
   );

@@ -4,15 +4,18 @@ import moment from "moment/min/moment-with-locales";
 import { Grid } from "@primer/components";
 
 import Navbar from "./Navbar/Navbar";
-import Sidenav from "./Sidenav/Sidenav";
-import Calendar from "./Calendar";
+import FullCalendar from "./FullCalendar";
 
 function App() {
   const [globalDate, setGlobalDate] = useState(moment());
   const [smallCalendarDate, setSmallCalendarDate] = useState(globalDate);
 
-  const [selectedCalendar, setSelectedCalendar] = useState("month");
-  
+  const [selectedCalendar, setSelectedCalendar] = useState({
+    selected: "month",
+    settings: "settings",
+  });
+  console.log(selectedCalendar);
+
   return (
     <div className="App">
       <Grid
@@ -27,13 +30,11 @@ function App() {
           setSelectedCalendar={setSelectedCalendar}
           setSmallCalendarDate={setSmallCalendarDate}
         />
-        <Sidenav
-          smallCalendarDate={smallCalendarDate}
-          setSmallCalendarDate={setSmallCalendarDate}
-        />
-        <Calendar
+        <FullCalendar
           globalDate={globalDate}
           selectedCalendar={selectedCalendar}
+          smallCalendarDate={smallCalendarDate}
+          setSmallCalendarDate={setSmallCalendarDate}
         />
       </Grid>
     </div>

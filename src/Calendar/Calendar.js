@@ -7,7 +7,7 @@ import CalendarMonth from "./CalendarMonth/CalendarMonth";
 import CalendarAgenda from "./CalendarAgenda/CalendarAgenda";
 
 function Calendar({ globalDate, selectedCalendar }) {
-  switch (selectedCalendar) {
+  switch (selectedCalendar.selected) {
     case "day":
       return <CalendarDay globalDate={globalDate} />;
     case "week":
