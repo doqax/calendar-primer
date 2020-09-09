@@ -1,5 +1,6 @@
 import React from "react";
 import SmallCalendar from "./SmallCalendar/SmallCalendar";
+import ShowHolidays from "./CalendarOptions/ShowHolidays";
 
 function Sidenav({
   smallCalendarDate,
@@ -11,6 +12,7 @@ function Sidenav({
         smallCalendarDate={smallCalendarDate}
         setSmallCalendarDate={setSmallCalendarDate}
       />
+      <ShowHolidays />
     </div>
   );
 }

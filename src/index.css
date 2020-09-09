@@ -17,6 +17,16 @@ code {
     monospace;
 }
 
+input[type='checkbox'] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+label {
+  user-select: none;
+  cursor: pointer;
+}
+
 .currentMonth {
   background-color: #fff;
 }
