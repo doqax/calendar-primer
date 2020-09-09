@@ -1,10 +1,11 @@
 import React from "react";
 import moment from "moment/min/moment-with-locales";
-import { Box, Button } from "@primer/components";
+import { Box, Button, Link } from "@primer/components";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ThreeBarsIcon,
+  MarkGithubIcon,
 } from "@primer/octicons-react";
 
 import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
@@ -22,15 +23,21 @@ function LeftSide({
         mx={2}
         onClick={() => {
           const { settings, selected } = selectedCalendar;
-          setSelectedCalendar({ settings, selected, sidenav : !selectedCalendar.sidenav });
+          setSelectedCalendar({
+            settings,
+            selected,
+            sidenav: !selectedCalendar.sidenav,
+          });
         }}
       >
         <ThreeBarsIcon />
       </Button>
-      {/* <div className="logo"></div> */}
+      <Link ml={4} mr={2} href="https://github.com/doqax/calendar-primer">
+        <MarkGithubIcon size={24} />
+      </Link>
       <h3>Calendar</h3>
       <Button
-        ml={12}
+        ml={9}
         mr={2}
         onClick={() => {
           const date = moment();
