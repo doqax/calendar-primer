@@ -18,6 +18,7 @@ function DaysHeader({ globalDate }) {
       borderRightWidth={0}
       borderLeftWidth={0}
       borderTopWidth={0}
+      key={"GMT"}
     >
       <Text as="p" fontSize={12} marginTop="84px" marginBottom="0px">
         GMT {gmt.substring(0, gmt.length - 2)}

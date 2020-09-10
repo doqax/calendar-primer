@@ -5,7 +5,7 @@ import moment from "moment";
 
 function DayHeader({ day, dayDate }) {
   return (
-    <div className="daysHeader">
+    <div className="dayHeader">
     <BorderBox
       borderRadius={0}
       borderWidth={1}
@@ -13,7 +13,7 @@ function DayHeader({ day, dayDate }) {
       borderTopWidth={0}
       borderLeftWidth={0}
     >
-      <div className="daysHeader--border"></div>
+      <div className="dayHeader--border"></div>
       <Sticky height={100}>
         <Text as={"p"} textAlign="center" marginTop={1} fontSize={14} fontWeight={500} color={"gray.5"}>
           {day.toUpperCase()}

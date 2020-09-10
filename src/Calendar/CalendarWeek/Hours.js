@@ -1,24 +1,16 @@
 import React from "react";
-
-import { Box, Text } from "@primer/components";
+import Hour from "./Hour";
 
 function Hours() {
   const hours = [];
-  for (let i = 0; i <= 24; i++) {
-    let formatHours;
-
+  let formatHours;
+  for (let i = 0; i <= 23; i++) {
     formatHours = i <= 11 ? " AM" : " PM";
     hours.push(
-      <Box height={50} key={i}>
-        <Text as={"p"} mr={2} fontSize={12} textAlign="right">{i === 0 ? "" : i + formatHours}</Text>
-      </Box>
+      <Hour hour={i} format={formatHours} key={i} />
     );
   }
-  return (
-    <div>
-      {hours}
-    </div>
-  );
+  return <div>{hours}</div>;
 }
 
 export default Hours;
