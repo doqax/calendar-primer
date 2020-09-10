@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@primer/components";
+import { Grid, Box } from "@primer/components";
 
 import Hours from "./Hours";
 import DaysHeader from "./DaysHeader";
@@ -11,9 +11,11 @@ function CalendarWeek({ globalDate }) {
   return (
     <div className="calendar--week">
       <div className="daysHeader">
+        <Box paddingRight={[0, 0, 17]}>
         <Grid gridTemplateColumns="60px repeat(7, 1fr)" backgroundColor="white">
           <DaysHeader globalDate={globalDate} />
         </Grid>
+        </Box>
       </div>
       <div className="calendar--week-time">
         <Grid gridTemplateColumns="60px repeat(7, 1fr)">

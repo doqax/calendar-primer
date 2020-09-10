@@ -10,7 +10,7 @@
 }
 
 .daysHeader {
-  padding-right: 17px;
+  /* padding-right: 17px; */
 }
 
 .dayHeader {
@@ -48,6 +48,3 @@
 .daysColumn {
   
 }
-/* 
-overflow: scroll;
-visibility: hidden; */
