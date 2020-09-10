@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafbfc;
+  text-rendering: geometricPrecision;
 }
 
 code {
@@ -52,8 +52,19 @@ label {
   position: relative;
   height: calc(100% - 4px);
   width: calc(100% - 4px);
-  margin-top: 3px;
+  /* margin-top: 3px; */
   grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.calendar--week {
+  position: relative;
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.calendar--week-time {
+  height: calc(100vh - 165px);
+  margin-right: 4px;
+  overflow-y: scroll;
 }
 
 table {

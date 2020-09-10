@@ -1,0 +1,14 @@
+.daysHeader {
+  position: relative;
+}
+
+.daysHeader--border {
+  position: absolute;
+  border-left: 1px solid #e1e4e8;
+  top: 75%;
+  bottom: 0;
+}
+
+.daysColumn {
+  
+}
