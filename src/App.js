@@ -12,12 +12,16 @@ function App() {
 
   const [selectedCalendar, setSelectedCalendar] = useState({
     selected: "month",
-    sidenav: false,
+    sidenav: true,
     settings: false,
   });
-  console.log(selectedCalendar);
 
-  const gridTemplateColumns = selectedCalendar.sidenav ? "260px 1fr": "0px 1fr";
+  let gridTemplateColumns;
+  if (selectedCalendar.settings) {
+    gridTemplateColumns = "0px 1fr";
+  } else {
+    gridTemplateColumns = selectedCalendar.sidenav ? "260px 1fr": "0px 1fr"
+  }
 
   return (
     <div className="App">

@@ -70,8 +70,8 @@ th {
 td {
   position: relative;
   /* padding: 8px 16px; */
-  width: calc(100% / 7);
-  height: calc(100% / 6);
+  /* width: calc(100% / 7); */
+  /* height: calc(100% / 6); */
   border: 1px solid rgba(225, 228, 232, .5);
   user-select: none;
 }

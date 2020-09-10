@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Dropdown } from "@primer/components";
 import { GearIcon, ListUnorderedIcon } from "@primer/octicons-react";
 
-import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
+import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
 function RightSide({ selectedCalendar, setSelectedCalendar }) {
   return (

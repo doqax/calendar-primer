@@ -8,7 +8,7 @@ import {
   MarkGithubIcon,
 } from "@primer/octicons-react";
 
-import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
+import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
 function LeftSide({
   globalDate,

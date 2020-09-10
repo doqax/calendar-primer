@@ -1,35 +1,33 @@
 import React from "react";
-import SettingsNavbar from "./SettingsNavbar";
-import CalendarNavbar from "./CalendarNavbar/CalendarNavbar";
+import { Flex } from "@primer/components";
 
-function Navbar({
+import LeftSide from "./LeftSide";
+import RightSide from "./RightSide";
+
+function CalendarNavbar({
   globalDate,
   setGlobalDate,
   selectedCalendar,
   setSelectedCalendar,
   setSmallCalendarDate,
 }) {
-  switch (selectedCalendar.settings) {
-    case "settings":
-      return (
-        <SettingsNavbar
-          selectedCalendar={selectedCalendar}
-          setSelectedCalendar={setSelectedCalendar}
-        />
-      );
-    default:
-      return (
-        <CalendarNavbar
+  return (
+    <div className="navbar">
+      <Flex flexWrap="wrap" alignItems="center" backgroundColor="white">
+        <LeftSide
           setGlobalDate={setGlobalDate}
           globalDate={globalDate}
           setSmallCalendarDate={setSmallCalendarDate}
           selectedCalendar={selectedCalendar}
           setSelectedCalendar={setSelectedCalendar}
+        />
+        <RightSide
           selectedCalendar={selectedCalendar}
           setSelectedCalendar={setSelectedCalendar}
         />
-      );
-  }
+      </Flex>
+    </div>
+  );
 }
 
-export default Navbar;
+export default CalendarNavbar;
