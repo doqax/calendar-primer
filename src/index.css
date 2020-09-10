@@ -36,7 +36,7 @@ label {
 }
 
 .navbar {
-  grid-area: 1 / 1 / span 3 / span 2;
+  grid-area: 1 / 1 / span 1 / span 2;
 }
 
 .logo {
@@ -50,9 +50,9 @@ label {
 
 .calendar {
   position: relative;
-  height: calc(100% - 4px);
-  width: calc(100% - 4px);
-  /* margin-top: 3px; */
+  height: 100%;
+  width: 100%;
+  /* margin-top: 5px; */
   grid-area: 2 / 2 / span 1 / span 1;
 }
 
@@ -72,7 +72,9 @@ td {
   /* padding: 8px 16px; */
   /* width: calc(100% / 7); */
   /* height: calc(100% / 6); */
-  border: 1px solid rgba(225, 228, 232, 0.5);
+  border: 1px solid	#e1e4e8;
+  border-top: none;
+  border-right: none;
   user-select: none;
 }
 

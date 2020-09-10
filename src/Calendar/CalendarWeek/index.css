@@ -1,16 +1,14 @@
 .calendar--week {
   position: relative;
+  margin-left: 12px;
+  margin-top: 12px;
   grid-area: 2 / 2 / span 1 / span 1;
 }
 
 .calendar--week-time {
-  height: calc(100vh - 165px);
+  height: calc(100vh - 189px);
   /* margin-right: 4px; */
   overflow-y: scroll;
-}
-
-.daysHeader {
-  /* padding-right: 17px; */
 }
 
 .dayHeader {

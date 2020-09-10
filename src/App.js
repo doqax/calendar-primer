@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <Grid
         gridTemplateColumns={gridTemplateColumns}
-        gridTemplateRows="60px 1fr"
+        gridTemplateRows="65px 1fr"
         height="100vh"
       >
         <Navbar
