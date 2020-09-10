@@ -25,8 +25,6 @@ function Navbar({
           setSmallCalendarDate={setSmallCalendarDate}
           selectedCalendar={selectedCalendar}
           setSelectedCalendar={setSelectedCalendar}
-          selectedCalendar={selectedCalendar}
-          setSelectedCalendar={setSelectedCalendar}
         />
       );
   }

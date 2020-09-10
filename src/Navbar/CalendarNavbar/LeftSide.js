@@ -32,12 +32,12 @@ function LeftSide({
       >
         <ThreeBarsIcon />
       </Button>
-      <Link ml={4} mr={2} href="https://github.com/doqax/calendar-primer">
+      <Link ml={[1, 2, 4]} mr={2} href="https://github.com/doqax/calendar-primer">
         <MarkGithubIcon size={24} />
       </Link>
       <h3>Calendar</h3>
       <Button
-        ml={9}
+        ml={[1, 1, 8]}
         mr={2}
         onClick={() => {
           const date = moment();

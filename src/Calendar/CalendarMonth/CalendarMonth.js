@@ -1,8 +1,6 @@
 import React from "react";
 // import moment from "moment/min/moment-with-locales";
 
-import { Box } from "@primer/components";
-
 import CalendarRows from "./CalendarRows";
 
 // moment.updateLocale("fr", {
@@ -14,7 +12,6 @@ import CalendarRows from "./CalendarRows";
 function CalendarMonth({ globalDate }) {
   return (
     <div className="calendar">
-      <Box height={"100%"}>
         <table cellSpacing="0">
           <tbody>
             <CalendarRows
@@ -22,7 +19,6 @@ function CalendarMonth({ globalDate }) {
             />
           </tbody>
         </table>
-      </Box>
     </div>
   );
 }
