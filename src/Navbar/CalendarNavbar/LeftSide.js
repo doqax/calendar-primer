@@ -50,7 +50,7 @@ function LeftSide({
       <Box ml={3} mr={1}>
         <Button
           onClick={() => {
-            const date = moment(globalDate).subtract(1, "months");
+            const date = moment(globalDate).subtract(1, selectedCalendar.selected);
             setGlobalDate(date);
             setSmallCalendarDate(date);
           }}
@@ -61,7 +61,7 @@ function LeftSide({
       <Box mr={3} ml={1}>
         <Button
           onClick={() => {
-            const date = moment(globalDate).add(1, "months");
+            const date = moment(globalDate).add(1, selectedCalendar.selected);
             setGlobalDate(date);
             setSmallCalendarDate(date);
           }}

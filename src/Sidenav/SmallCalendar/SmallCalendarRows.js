@@ -19,6 +19,7 @@ function daysPreviousMonth(firstDay, dateObject) {
   return blanks;
 }
 
+// fix bug in week
 function daysInMonth(dateObject) {
   const days = [];
   const daysInMonth = moment(dateObject).daysInMonth();
