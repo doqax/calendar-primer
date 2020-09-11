@@ -11,7 +11,7 @@ function App() {
   const [smallCalendarDate, setSmallCalendarDate] = useState(globalDate);
 
   const [selectedCalendar, setSelectedCalendar] = useState({
-    selected: "week",
+    selected: "day",
     sidenav: true,
     settings: false,
   });
