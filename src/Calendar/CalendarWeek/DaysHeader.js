@@ -4,13 +4,12 @@ import { BorderBox, Text } from "@primer/components";
 
 import DayHeader from "./DayHeader";
 
-function DaysHeader({ globalDate }) {
+function DaysHeader({ date }) {
   const weekDaysShort = moment.weekdaysShort();
-  const date = moment(globalDate).startOf("week");
-
-  let dayDate = date;
+  const startOfWeek = moment(date).startOf("week");
+  let dayDate = startOfWeek;
+  const gmt = moment(date).format("ZZ");
   let days = [];
-  const gmt = moment(globalDate).format("ZZ");
   days.push(
     <BorderBox
       borderRadius={0}

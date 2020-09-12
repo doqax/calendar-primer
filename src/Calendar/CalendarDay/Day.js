@@ -3,11 +3,13 @@ import moment from "moment";
 import { BorderBox, Text } from "@primer/components";
 import DayHeader from "../CalendarWeek/DayHeader";
 
-function Day({ globalDate }) {
+function Day({ calendar }) {
+  const [calendarState] = calendar;
+  const { date } = calendarState;
 
-  const day = moment(globalDate).format("ddd");
-  const gmt = moment(globalDate).format("ZZ");
-  const dayDate = globalDate;
+  const day = moment(date).format("ddd");
+  const gmt = moment(date).format("ZZ");
+  const dayDate = date;
 
   return (
     <>
