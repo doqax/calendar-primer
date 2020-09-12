@@ -20,7 +20,7 @@ function DaysInMonth({ sideCalendarDate }) {
     days.push(
       <Day
         day={i}
-        color={"black"}
+        color={"gray.8"}
         dayColor={style}
         key={`current-${i}`}
       />

@@ -47,15 +47,14 @@ function SmallCalendar({ calendar }) {
       </Flex>
       <Grid
         gridTemplateColumns="repeat(7, auto)"
-        gridTemplateRows="repeat(7, 25px)"
-        height="calc(7 * 30px)"
-        gridGap={1}
-        mx={4}
+        height="30px"
+        px={3}
         pt={1}
+        pb={2}
       >
         <OneLetterWeekDay />
-        <SmallCalendarRows calendar={calendar} />
       </Grid>
+      <SmallCalendarRows calendar={calendar} />
     </Box>
   );
 }

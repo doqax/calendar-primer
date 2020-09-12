@@ -4,7 +4,6 @@ import moment from "moment";
 import Day from "./Day";
 
 function DaysPreviousMonth({ sideCalendarDate }) {
-  console.log(sideCalendarDate);
   const firstDayOfMonth = moment(sideCalendarDate).startOf("month").format("e"); // 0 = sunday, 6 = saturday. use format("d") for iso
   const firstDayMinusStartOfWeek = moment(sideCalendarDate)
     .startOf("month")
