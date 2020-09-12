@@ -13,7 +13,7 @@ function FullCalendar({ calendar }) {
   } else {
     return (
       <>
-        {/* <Calendar calendar={calendar} /> */}
+        <Calendar calendar={calendar} />
         {showSidenav && <Sidenav calendar={calendar} />}
       </>
     );

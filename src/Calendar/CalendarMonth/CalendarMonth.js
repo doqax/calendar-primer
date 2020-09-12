@@ -9,16 +9,14 @@ import CalendarRows from "./CalendarRows";
 //   },
 // });
 
-function CalendarMonth({ globalDate }) {
+function CalendarMonth({ calendar }) {
   return (
     <div className="calendar">
-        <table cellSpacing="0">
-          <tbody>
-            <CalendarRows
-              globalDate={globalDate}
-            />
-          </tbody>
-        </table>
+      <table cellSpacing="0">
+        <tbody>
+          <CalendarRows calendar={calendar} />
+        </tbody>
+      </table>
     </div>
   );
 }

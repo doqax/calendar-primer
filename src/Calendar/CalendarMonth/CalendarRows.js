@@ -106,14 +106,16 @@ function daysNextMonth(
   return blanks;
 }
 
-function CalendarRows({ globalDate }) {
-  const firstDayOfMonth = moment(globalDate).startOf("month").format("d");
-  const lastDayOfMonth = moment(globalDate).endOf("month").format("d");
+function CalendarRows({ calendar }) {
+  const [calendarState] = calendar;
+  const { date } = calendarState;
+  const firstDayOfMonth = moment(date).startOf("month").format("d");
+  const lastDayOfMonth = moment(date).endOf("month").format("d");
 
   const totalSlots = [
-    ...daysPreviousMonth(firstDayOfMonth, globalDate),
-    ...daysInMonth(firstDayOfMonth, globalDate),
-    ...daysNextMonth(lastDayOfMonth, globalDate),
+    ...daysPreviousMonth(firstDayOfMonth, date),
+    ...daysInMonth(firstDayOfMonth, date),
+    ...daysNextMonth(lastDayOfMonth, date),
   ];
   let rows = [];
   let cells = [];

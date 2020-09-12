@@ -6,18 +6,20 @@ import CalendarMonth from "./CalendarMonth/CalendarMonth";
 
 import CalendarAgenda from "./CalendarAgenda/CalendarAgenda";
 
-function Calendar({ globalDate, selectedCalendar }) {
-  switch (selectedCalendar.selected) {
+function Calendar({ calendar }) {
+  const [calendarState] = calendar;
+  const { options } = calendarState;
+  switch (options.selected) {
     case "day":
-      return <CalendarDay globalDate={globalDate} />;
+      return <CalendarDay calendar={calendar} />;
     case "week":
-      return <CalendarWeek globalDate={globalDate} />;
+      return <CalendarWeek calendar={calendar} />;
     case "month":
-      return <CalendarMonth globalDate={globalDate} />;
+      return <CalendarMonth calendar={calendar} />;
     case "agenda":
-      return <CalendarAgenda globalDate={globalDate} />;
+      return <CalendarAgenda calendar={calendar} />;
     default:
-      return <CalendarMonth globalDate={globalDate} />;
+      return <CalendarMonth calendar={calendar} />;
   }
 }
 
