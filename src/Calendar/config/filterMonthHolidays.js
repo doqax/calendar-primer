@@ -1,4 +1,4 @@
-import moment from "moment/min/moment-with-locales";
+import moment from "moment";
 import { holidays } from "../config/holidays";
 
 // inefficient but will be replaced by API

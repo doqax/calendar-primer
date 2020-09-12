@@ -5,8 +5,6 @@ import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
 function CalendarNavbar({ calendar }) {
-  const [calendarState, setCalendarState] = calendar;
-  console.log(calendarState);
   return (
     <div className="navbar">
       <BorderBox
@@ -18,8 +16,8 @@ function CalendarNavbar({ calendar }) {
         height={"65px"}
       >
         <Flex flexWrap="wrap" alignItems="center" backgroundColor="white">
-          <LeftSide calendar={[calendarState, setCalendarState]} />
-          <RightSide calendar={[calendarState, setCalendarState]} />
+          <LeftSide calendar={calendar} />
+          <RightSide calendar={calendar} />
         </Flex>
       </BorderBox>
     </div>

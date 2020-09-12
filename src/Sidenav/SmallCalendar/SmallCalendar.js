@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment/min/moment-with-locales";
+import moment from "moment";
 import { Box, Flex, Text, Button, ButtonGroup, Grid } from "@primer/components";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
 
@@ -12,7 +12,6 @@ import SmallCalendarRows from "./SmallCalendarRows";
 function SmallCalendar({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
   const { sideCalendarDate, date } = calendarState;
-
   const monthYear = moment(sideCalendarDate).format("MMMM YYYY");
 
   return (
@@ -55,7 +54,7 @@ function SmallCalendar({ calendar }) {
         pt={1}
       >
         <OneLetterWeekDay />
-        <SmallCalendarRows dateObject={sideCalendarDate} />
+        <SmallCalendarRows calendar={calendar} />
       </Grid>
     </Box>
   );

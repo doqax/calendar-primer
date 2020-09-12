@@ -8,7 +8,7 @@ function Sidenav({ calendar }) {
   return (
     <div className="sidebar">
       <SmallCalendar
-        calendar={[calendarState, setCalendarState]}
+        calendar={calendar}
       />
       <ShowHolidays />
     </div>

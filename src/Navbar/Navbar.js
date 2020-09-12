@@ -3,13 +3,13 @@ import SettingsNavbar from "./SettingsNavbar";
 import CalendarNavbar from "./CalendarNavbar/CalendarNavbar";
 
 function Navbar({ calendar }) {
-  const [calendarState, setCalendarState] = calendar;
+  const [ calendarState ] = calendar;
   const { showSettings } = calendarState.options;
 
   if (showSettings) {
-    return <SettingsNavbar calendar={[calendarState, setCalendarState]} />;
+    return <SettingsNavbar calendar={calendar} />;
   } else {
-    return <CalendarNavbar calendar={[calendarState, setCalendarState]} />;
+    return <CalendarNavbar calendar={calendar} />;
   }
 }
 

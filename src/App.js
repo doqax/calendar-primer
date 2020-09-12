@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import moment from "moment/min/moment-with-locales";
+import moment from "moment";
 import { Grid } from "@primer/components";
 
 import Navbar from "./Navbar/Navbar";
@@ -13,7 +13,7 @@ function App() {
     options: {
       selected : "month",
       showSidenav: true,
-      showSettings: true
+      showSettings: false
     }
   });
 
