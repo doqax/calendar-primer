@@ -2,15 +2,13 @@ import React from "react";
 import SmallCalendar from "./SmallCalendar/SmallCalendar";
 import ShowHolidays from "./CalendarOptions/ShowHolidays";
 
-function Sidenav({
-  smallCalendarDate,
-  setSmallCalendarDate,
-}) {
+function Sidenav({ calendar }) {
+  const [ calendarState, setCalendarState] = calendar;
+
   return (
     <div className="sidebar">
       <SmallCalendar
-        smallCalendarDate={smallCalendarDate}
-        setSmallCalendarDate={setSmallCalendarDate}
+        calendar={[calendarState, setCalendarState]}
       />
       <ShowHolidays />
     </div>

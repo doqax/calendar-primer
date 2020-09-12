@@ -9,28 +9,37 @@ import OneLetterWeekDay from "../../utils/OneLetterWeekDay";
 
 import SmallCalendarRows from "./SmallCalendarRows";
 
-function SmallCalendar({ smallCalendarDate, setSmallCalendarDate }) {
-  const selectedDate = moment(smallCalendarDate).format("MMMM YYYY");
+function SmallCalendar({ calendar }) {
+  const [calendarState, setCalendarState] = calendar;
+  const { sideCalendarDate, date } = calendarState;
+
+  const monthYear = moment(sideCalendarDate).format("MMMM YYYY");
 
   return (
     <Box mt={2} mr={2} ml={3}>
       <Flex>
         <Text as="p" fontWeight="bold">
-          {capitalizeFirstLetter(selectedDate)}
+          {capitalizeFirstLetter(monthYear)}
         </Text>
         <ButtonGroup display="block" mt={2} ml="auto" mr={2}>
           <Button
             onClick={() => {
-              const date = moment(smallCalendarDate).subtract(1, "month");
-              setSmallCalendarDate(date);
+              const previous = moment(sideCalendarDate).subtract(1, "month");
+              setCalendarState({
+                ...calendarState,
+                sideCalendarDate: previous,
+              });
             }}
           >
             <ChevronLeftIcon />
           </Button>
           <Button
             onClick={() => {
-              const date = moment(smallCalendarDate).add(1, "month");
-              setSmallCalendarDate(date);
+              const next = moment(sideCalendarDate).add(1, "month");
+              setCalendarState({
+                ...calendarState,
+                sideCalendarDate: next,
+              });
             }}
           >
             <ChevronRightIcon />
@@ -46,9 +55,7 @@ function SmallCalendar({ smallCalendarDate, setSmallCalendarDate }) {
         pt={1}
       >
         <OneLetterWeekDay />
-        <SmallCalendarRows
-          dateObject={smallCalendarDate}
-        />
+        <SmallCalendarRows dateObject={sideCalendarDate} />
       </Grid>
     </Box>
   );

@@ -34,9 +34,9 @@ function App() {
         <Navbar
           calendar={[calendarState, setCalendarState]}
         />
-        {/* <FullCalendar
-          calendar={calendarState, setCalendarState}
-        /> */}
+        <FullCalendar
+          calendar={[calendarState, setCalendarState]}
+        />
       </Grid>
     </div>
   );
