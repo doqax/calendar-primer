@@ -26,7 +26,7 @@ function DaysHeader({ globalDate }) {
     </BorderBox>
   );
   weekDaysShort.forEach((day, i) => {
-    days.push(<DayHeader key={i} day={day} dayDate={dayDate} />);
+    days.push(<DayHeader key={i} day={day} dayDate={dayDate} textAlign={"center"} />);
     dayDate = moment(dayDate).add(1, "d");
   });
 

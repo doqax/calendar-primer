@@ -3,7 +3,7 @@ import { BorderBox, Text, Sticky } from "@primer/components";
 
 import moment from "moment";
 
-function DayHeader({ day, dayDate }) {
+function DayHeader({ day, dayDate, textAlign }) {
   return (
     <div className="dayHeader">
     <BorderBox
@@ -14,11 +14,11 @@ function DayHeader({ day, dayDate }) {
       borderLeftWidth={0}
     >
       <div className="dayHeader--border"></div>
-      <Sticky height={100}>
-        <Text as={"p"} textAlign="center" marginTop={1} fontSize={14} fontWeight={500} color={"gray.5"}>
+      <Sticky height={100} mx={4}>
+        <Text as={"p"}  marginTop={1} textAlign={textAlign} fontSize={14} fontWeight={500} color={"gray.5"}>
           {day.toUpperCase()}
         </Text>
-        <Text as={"p"} textAlign="center" marginTop={1} fontSize={20} fontWeight={500}>
+        <Text as={"p"}  marginTop={1} textAlign={textAlign} fontSize={20} fontWeight={500}>
           {moment(dayDate).format("D")}
         </Text>
       </Sticky>

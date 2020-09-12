@@ -23,7 +23,7 @@ function Day({ globalDate }) {
           GMT {gmt.substring(0, gmt.length - 2)}
         </Text>
       </BorderBox>
-      <DayHeader day={day} dayDate={dayDate} />
+      <DayHeader day={day} dayDate={dayDate} textAlign={"left"} />
     </>
   );
 }
