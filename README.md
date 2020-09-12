@@ -46,6 +46,7 @@ In progress
 - [ ] Find a way to manage listener efficiently instead of using it on every cells
 - [ ] Probably refactor, fix bug and write test at that point
 - [ ] Add drag and drop feature
+- [ ] Make it work with localStorage and start learning about PWA
 
 - [ ] Make API for events
 - [ ] I'd like to go SQL this time
