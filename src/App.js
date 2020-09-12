@@ -7,21 +7,22 @@ import Navbar from "./Navbar/Navbar";
 import FullCalendar from "./FullCalendar";
 
 function App() {
-  const [globalDate, setGlobalDate] = useState(moment());
-  const [smallCalendarDate, setSmallCalendarDate] = useState(globalDate);
-
-  const [selectedCalendar, setSelectedCalendar] = useState({
-    selected: "day",
-    sidenav: true,
-    settings: false,
+  const [calendarState, setCalendarState] = useState({
+    date: moment(),
+    sideCalendarDate: moment(),
+    options: {
+      selected : "month",
+      showSidenav: true,
+      showSettings: true
+    }
   });
 
   let gridTemplateColumns;
-  if (selectedCalendar.settings) {
+  if (calendarState.options.showSettings) {
     gridTemplateColumns = "0px 1fr";
   } else {
-    gridTemplateColumns = selectedCalendar.sidenav ? "260px 1fr": "0px 1fr"
-  }
+    gridTemplateColumns = calendarState.options.showSidenav ? "260px 1fr": "0px 1fr"
+  } // find a better way to do this ?
 
   return (
     <div className="App">
@@ -31,18 +32,11 @@ function App() {
         height="100vh"
       >
         <Navbar
-          globalDate={globalDate}
-          setGlobalDate={setGlobalDate}
-          selectedCalendar={selectedCalendar}
-          setSelectedCalendar={setSelectedCalendar}
-          setSmallCalendarDate={setSmallCalendarDate}
+          calendar={[calendarState, setCalendarState]}
         />
-        <FullCalendar
-          globalDate={globalDate}
-          selectedCalendar={selectedCalendar}
-          smallCalendarDate={smallCalendarDate}
-          setSmallCalendarDate={setSmallCalendarDate}
-        />
+        {/* <FullCalendar
+          calendar={calendarState, setCalendarState}
+        /> */}
       </Grid>
     </div>
   );

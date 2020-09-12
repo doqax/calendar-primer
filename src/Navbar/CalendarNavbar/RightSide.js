@@ -4,16 +4,21 @@ import { GearIcon, ListUnorderedIcon } from "@primer/octicons-react";
 
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
-function RightSide({ selectedCalendar, setSelectedCalendar }) {
+function RightSide({ calendar }) {
+  const [calendarState, setCalendarState] = calendar;
+  const { selected } = calendarState.options;
+
   return (
     <Box mr={3} ml="auto">
       <Button
         mr={3}
         onClick={() => {
-          setSelectedCalendar({
-            settings: false,
-            selected: "agenda",
-            sidenav: selectedCalendar.sidenav,
+          setCalendarState({
+            ...calendarState,
+            options: {
+              ...calendarState.options,
+              selected: "agenda"
+            }
           });
         }}
       >
@@ -21,41 +26,47 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
       </Button>
       <Dropdown overlay={true}>
         <Dropdown.Button>
-          {capitalizeFirstLetter(selectedCalendar.selected)}
+          {capitalizeFirstLetter(selected)}
         </Dropdown.Button>
         <Dropdown.Menu direction="sw">
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar({
-                settings: false,
-                selected: "day",
-                sidenav: selectedCalendar.sidenav,
+              setCalendarState({
+                ...calendarState,
+                options: {
+                  ...calendarState.options,
+                  selected: "day"
+                }
               });
-              document.body.click();
+              document.body.click(); // bug with primer
             }}
           >
             <Box p={1}>Day</Box>
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar({
-                settings: false,
-                selected: "week",
-                sidenav: selectedCalendar.sidenav,
+              setCalendarState({
+                ...calendarState,
+                options: {
+                  ...calendarState.options,
+                  selected: "week"
+                }
               });
-              document.body.click();
+              document.body.click(); // bug with primer
             }}
           >
             <Box p={1}>Week</Box>
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
-              setSelectedCalendar({
-                settings: false,
-                selected: "month",
-                sidenav: selectedCalendar.sidenav,
+              setCalendarState({
+                ...calendarState,
+                options: {
+                  ...calendarState.options,
+                  selected: "month"
+                }
               });
-              document.body.click();
+              document.body.click(); // bug with primer
             }}
           >
             <Box p={1}>Month</Box>
@@ -65,12 +76,14 @@ function RightSide({ selectedCalendar, setSelectedCalendar }) {
       <Button
         ml={3}
         onClick={() => {
-          setSelectedCalendar({
-            settings: "settings",
-            selected: selectedCalendar.selected,
-            sidenav: selectedCalendar.sidenav,
+          setCalendarState({
+            ...calendarState,
+            options: {
+              ...calendarState.options,
+              showSettings: true
+            }
           });
-          document.body.click();
+          document.body.click(); // bug with primer
         }}
       >
         <GearIcon />

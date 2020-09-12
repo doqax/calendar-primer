@@ -4,13 +4,9 @@ import { Flex, BorderBox } from "@primer/components";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
-function CalendarNavbar({
-  globalDate,
-  setGlobalDate,
-  selectedCalendar,
-  setSelectedCalendar,
-  setSmallCalendarDate,
-}) {
+function CalendarNavbar({ calendar }) {
+  const [calendarState, setCalendarState] = calendar;
+  console.log(calendarState);
   return (
     <div className="navbar">
       <BorderBox
@@ -22,17 +18,8 @@ function CalendarNavbar({
         height={"65px"}
       >
         <Flex flexWrap="wrap" alignItems="center" backgroundColor="white">
-          <LeftSide
-            setGlobalDate={setGlobalDate}
-            globalDate={globalDate}
-            setSmallCalendarDate={setSmallCalendarDate}
-            selectedCalendar={selectedCalendar}
-            setSelectedCalendar={setSelectedCalendar}
-          />
-          <RightSide
-            selectedCalendar={selectedCalendar}
-            setSelectedCalendar={setSelectedCalendar}
-          />
+          <LeftSide calendar={[calendarState, setCalendarState]} />
+          <RightSide calendar={[calendarState, setCalendarState]} />
         </Flex>
       </BorderBox>
     </div>

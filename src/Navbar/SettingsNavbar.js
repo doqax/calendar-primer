@@ -3,7 +3,19 @@ import React from "react";
 import { Flex, Button, BorderBox } from "@primer/components";
 import { ChevronLeftIcon } from "@primer/octicons-react";
 
-function SettingsNavbar({ setSelectedCalendar, selectedCalendar }) {
+function SettingsNavbar({ calendar }) {
+  const [calendarState, setCalendarState] = calendar;
+
+  function returnToCalendar() {
+    setCalendarState({
+      ...calendarState,
+      options : {
+        ...calendarState.options,
+        showSettings: false
+      }
+    });
+  }
+
   return (
     <div className="navbar">
       <BorderBox
@@ -17,14 +29,7 @@ function SettingsNavbar({ setSelectedCalendar, selectedCalendar }) {
         <Flex flexWrap="wrap" alignItems="center" backgroundColor="white">
           <Button
             mx={2}
-            onClick={() => {
-              const selected = selectedCalendar.selected;
-              setSelectedCalendar({
-                selected,
-                settings: false,
-                sidenav: selectedCalendar.sidenav,
-              });
-            }}
+            onClick={returnToCalendar}
           >
             <ChevronLeftIcon />
           </Button>
