@@ -3,7 +3,7 @@ import moment from "moment";
 
 import Day from "./Day";
 
-function DaysInMonth({ calendar }) {
+function DaysInMonth({ calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar; 
   const { sideCalendarDate } = calendarState;
 
@@ -27,7 +27,8 @@ function DaysInMonth({ calendar }) {
         dayColor={style}
         key={`current-${i}`}
         date={moment(sideCalendarDate).date(i)}
-        setCalendarState={setCalendarState}
+        calendar={calendar}
+        sideSelected={sideSelected}
       />
     );
   }

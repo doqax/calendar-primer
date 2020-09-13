@@ -3,7 +3,7 @@ import moment from "moment";
 
 import Day from "./Day";
 
-function DaysNextMonth({ calendar }) {
+function DaysNextMonth({ calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar; 
   const { sideCalendarDate } = calendarState;
   const lastDayOfMonth = moment(sideCalendarDate).endOf("month").format("e");
@@ -19,7 +19,8 @@ function DaysNextMonth({ calendar }) {
         key={`nextBlanks${i}`}
         dayColor={"next-Month"}
         date={moment(nextMonth).date(i)}
-        setCalendarState={setCalendarState}
+        calendar={calendar}
+        sideSelected={sideSelected}
       />
     );
   }

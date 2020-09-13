@@ -5,7 +5,7 @@ import DaysPreviousMonth from "./DaysPreviousMonth";
 import DaysInMonth from "./DaysInMonth";
 import DaysNextMonth from "./DaysNextMonth";
 
-function SmallCalendarRows({ calendar }) {
+function SmallCalendarRows({ calendar, sideSelected }) {
   return (
     <Grid
       gridTemplateColumns="repeat(7, auto)"
@@ -15,9 +15,9 @@ function SmallCalendarRows({ calendar }) {
       pb={6}
       px={3}
     >
-      <DaysPreviousMonth calendar={calendar} />
-      <DaysInMonth calendar={calendar} />
-      <DaysNextMonth calendar={calendar} />
+      <DaysPreviousMonth calendar={calendar} sideSelected={sideSelected} />
+      <DaysInMonth calendar={calendar} sideSelected={sideSelected} />
+      <DaysNextMonth calendar={calendar} sideSelected={sideSelected} />
     </Grid>
   );
 }

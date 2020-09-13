@@ -1,38 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text } from "@primer/components";
-
+import moment from "moment";
 import "./day.css";
 
-function Day({ day, color, dayColor, date, setCalendarState }) {
-  const [countClick, setCountClick] = useState(0);
-  
-  // function handleOnClick() {
-  //   if (countClick === 2) {
-  //     setCalendarState((state) => ({
-  //       ...state, 
-  //       options : {
-  //         ...state.options,
-  //         selected: "day"
-  //       }
-  //     }))
-  //   } else if (countClick === 3) {
-  //     setCalendarState((state) => ({
-  //       ...state, 
-  //       options : {
-  //         ...state.options,
-  //         selected: "month"
-  //       }
-  //     }))
-  //   }
-  //   setCountClick(countClick + 1);
-  // }
-  // console.log(countClick);
+// To improve
+function Day({ day, color, dayColor, date, calendar, sideSelected }) {
+  const [calendarState, setCalendarState] = calendar;
+  const { selected } = calendarState.options;
+  const [dateSelected, setDateSelected] = sideSelected;
+  const sameDate = moment(dateSelected).isSame(date, "day");
+
+  const handleOnClick = () => {
+    if ((sameDate && selected !== "day") || (!sameDate && selected === "day")) {
+      setCalendarState((state) => ({
+        ...state,
+        date: moment(date),
+        options: {
+          ...state.options,
+          selected: "day",
+        },
+      }));
+      setDateSelected(date);
+    } else if (sameDate && selected === "day") {
+      setCalendarState((state) => ({
+        ...state,
+        options: {
+          ...state.options,
+          selected: "month", // supposed to be previous State but not implemented yet
+        },
+      }));
+    } else {
+      setDateSelected(date);
+    }
+  };
+
   return (
-    <div
-      className={`smallCalendar--day`}
-      // onClick={handleOnClick}
-    >
-      <div className={`smallCalendar--day-zone ${dayColor}`}>
+    <div className={`smallCalendar--day`}>
+      <div
+        className={`smallCalendar--day-zone ${dayColor} ${
+          moment(dateSelected).isSame(date, "day") && "selected"
+        }`}
+        onClick={handleOnClick}
+      >
         <Text
           as="p"
           textAlign="center"

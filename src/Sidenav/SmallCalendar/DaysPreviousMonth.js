@@ -3,10 +3,9 @@ import moment from "moment";
 
 import Day from "./Day";
 
-function DaysPreviousMonth({ calendar }) {
+function DaysPreviousMonth({ calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar; 
   const { sideCalendarDate } = calendarState;
-
 
   const firstDayOfMonth = moment(sideCalendarDate).startOf("month").format("e");
   const lastMonth = moment(sideCalendarDate).subtract(1, "month");
@@ -25,7 +24,9 @@ function DaysPreviousMonth({ calendar }) {
         key={`prevBlanks-${i}`}
         dayColor={"prev-Month"}
         date={moment(lastMonth).date(i)}
-        setCalendarState={setCalendarState}
+        calendar={calendar}
+        sideSelected={sideSelected}
+
       />
     );
   }

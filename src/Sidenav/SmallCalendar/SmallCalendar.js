@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { Box, Flex, Text, Button, ButtonGroup, Grid } from "@primer/components";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
@@ -12,7 +12,8 @@ import SmallCalendarRows from "./SmallCalendarRows";
 function SmallCalendar({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
   const { sideCalendarDate, date } = calendarState;
-  const monthYear = moment(sideCalendarDate).format("MMMM YYYY");
+  const [dateSelected, setDateSelected] = useState(moment(date).startOf("month")); // used for focus effect on sideDate
+  const monthYear = moment(sideCalendarDate).format("MMM YYYY");
 
   return (
     <Box mt={2} mr={2} ml={3}>
@@ -54,7 +55,7 @@ function SmallCalendar({ calendar }) {
       >
         <OneLetterWeekDay />
       </Grid>
-      <SmallCalendarRows calendar={calendar} />
+      <SmallCalendarRows calendar={calendar} sideSelected={[dateSelected, setDateSelected]}  />
     </Box>
   );
 }
