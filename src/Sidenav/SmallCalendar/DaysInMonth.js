@@ -32,7 +32,7 @@ function DaysInMonth({ calendar, sideSelected }) {
     } else if (isSelectedWeek(calendarState, i)) {
       style = "week";
     } else {
-      style = `currentMonth`;
+      style = `month`;
     }
 
     days.push(

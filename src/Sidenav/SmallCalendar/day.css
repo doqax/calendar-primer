@@ -8,7 +8,7 @@
 }
 
 .smallCalendar--day.week {
-  background-color: black; /* change color, and also add it to DaysPrev and DaysNext */
+  background-color: #c8e1ff; /* change color, and also add it to DaysPrev and DaysNext */
 }
 
 .smallCalendar--day-zone {
