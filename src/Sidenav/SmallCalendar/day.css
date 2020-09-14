@@ -7,6 +7,10 @@
   background-color: rgb(115, 178, 250);
 }
 
+.smallCalendar--day.week {
+  background-color: black; /* change color, and also add it to DaysPrev and DaysNext */
+}
+
 .smallCalendar--day-zone {
   padding: 2px 0;
   border-radius: 50%;

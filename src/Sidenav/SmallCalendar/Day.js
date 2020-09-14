@@ -3,8 +3,8 @@ import { Text } from "@primer/components";
 import moment from "moment";
 import "./day.css";
 
-// To improve
-function Day({ day, color, dayColor, date, calendar, sideSelected }) {
+// Temporary, refactor all props
+function Day({ day, color, dayColor, date, calendar, sideSelected, weekSelected }) {
   const [calendarState, setCalendarState] = calendar;
   const { selected, prevSelected } = calendarState.options;
   const [dateSelected, setDateSelected] = sideSelected;
@@ -45,7 +45,7 @@ function Day({ day, color, dayColor, date, calendar, sideSelected }) {
   };
 
   return (
-    <div className={`smallCalendar--day`}>
+    <div className={`smallCalendar--day ${weekSelected ? "week" : ""}`}>
       <div
         className={`smallCalendar--day-zone ${dayColor} ${
           moment(dateSelected).isSame(date) ? "selected" : ""
