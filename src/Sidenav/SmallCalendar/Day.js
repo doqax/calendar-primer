@@ -6,19 +6,20 @@ import "./day.css";
 // To improve
 function Day({ day, color, dayColor, date, calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar;
-  const { selected } = calendarState.options;
+  const { selected, prevSelected } = calendarState.options;
   const [dateSelected, setDateSelected] = sideSelected;
   const sameDate = moment(dateSelected).isSame(date);
-  
+
   const handleOnClick = () => {
     if ((sameDate && selected !== "day") || (!sameDate && selected === "day")) {
+      const prevNotDay = selected !== "day" ? selected: prevSelected;
       setCalendarState((state) => ({
         ...state,
         date: moment(date),
         options: {
           ...state.options,
           selected: "day",
-          prevSelected: state.options.selected
+          prevSelected: prevNotDay
         },
       }));
       setDateSelected(date);
