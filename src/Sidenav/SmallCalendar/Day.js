@@ -8,8 +8,8 @@ function Day({ day, color, dayColor, date, calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar;
   const { selected } = calendarState.options;
   const [dateSelected, setDateSelected] = sideSelected;
-  const sameDate = moment(dateSelected).isSame(date, "day");
-
+  const sameDate = moment(dateSelected).isSame(date);
+  
   const handleOnClick = () => {
     if ((sameDate && selected !== "day") || (!sameDate && selected === "day")) {
       setCalendarState((state) => ({
@@ -18,6 +18,7 @@ function Day({ day, color, dayColor, date, calendar, sideSelected }) {
         options: {
           ...state.options,
           selected: "day",
+          prevSelected: state.options.selected
         },
       }));
       setDateSelected(date);
@@ -26,10 +27,17 @@ function Day({ day, color, dayColor, date, calendar, sideSelected }) {
         ...state,
         options: {
           ...state.options,
-          selected: "month", // supposed to be previous State but not implemented yet
+          selected: state.options.prevSelected,
         },
       }));
     } else {
+      setCalendarState((state) => ({
+        date: moment(date),
+        sideCalendarDate: moment(date),
+        options: {
+          ...state.options
+        }
+      }));
       setDateSelected(date);
     }
   };
@@ -38,7 +46,7 @@ function Day({ day, color, dayColor, date, calendar, sideSelected }) {
     <div className={`smallCalendar--day`}>
       <div
         className={`smallCalendar--day-zone ${dayColor} ${
-          moment(dateSelected).isSame(date, "day") && "selected"
+          moment(dateSelected).isSame(date) && "selected"
         }`}
         onClick={handleOnClick}
       >

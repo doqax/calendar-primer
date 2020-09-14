@@ -10,8 +10,10 @@ function App() {
   const [calendarState, setCalendarState] = useState({
     date: moment(),
     sideCalendarDate: moment(),
+    today: moment(),
     options: {
       selected : "month",
+      prevSelected: "month",
       showSidenav: true,
       showSettings: false
     }

@@ -7,7 +7,7 @@ function DaysNextMonth({ calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar; 
   const { sideCalendarDate } = calendarState;
   const lastDayOfMonth = moment(sideCalendarDate).endOf("month").format("e");
-  const nextMonth = moment().add(1, "month");
+  const nextMonth = moment(sideCalendarDate).add(1, "month");
   const dayLeft = 7 - lastDayOfMonth;
 
   const blanks = [];

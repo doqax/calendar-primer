@@ -37,9 +37,12 @@ In progress
 
 ## Todo
 
-- [ ] learn more about display table (probably used for IE8 : IE9 support)
-- [ ] useReducer and refactor current way of dealing with state (or use redux or something)
-- [ ] Implement date in calendar week and calendar day + manage hours
+- [ X ] useReducer and refactor current way of dealing with state (or use redux or something)
+
+I will not use them for now. The core app should be working with useState.
+
+- [ X ] Implement date in calendar week and calendar day
+- [ ] manage hours
 - [ ] Add features to small calendar (onClick change month calendar, onClick change week calendar, onDoubleClick change day calendar and switch to day calendar, week view css, current day always present, css when date change)
 - [ ] Add Year view
 - [ ] Add Other Calendars features, disable view of holidays for example

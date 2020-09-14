@@ -5,16 +5,15 @@ import Day from "./Day";
 
 function DaysInMonth({ calendar, sideSelected }) {
   const [calendarState, setCalendarState] = calendar; 
-  const { sideCalendarDate } = calendarState;
+  const { sideCalendarDate, today } = calendarState;
 
   const daysInMonth = moment(sideCalendarDate).daysInMonth();
-  const today = parseInt(moment(sideCalendarDate).format("D"));
-  const isSameDay = moment().isSame(sideCalendarDate, "day");
-
+  const todayInt = parseInt(moment(today).format("D"));
+  const isSameMonth = moment(sideCalendarDate).isSame(today, "month");
   let style;
   const days = [];
   for (let i = 1; i <= daysInMonth; i++) {
-    if (isSameDay && today === i) {
+    if (isSameMonth && todayInt === i) {
       style = `today`;
     } else {
       style = `currentMonth`;
