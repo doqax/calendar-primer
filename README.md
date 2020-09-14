@@ -37,11 +37,11 @@ In progress
 
 ## Todo
 
-- [ X ] useReducer and refactor current way of dealing with state (or use redux or something)
+- [X] useReducer and refactor current way of dealing with state (or use redux or something)
 
 I will not use them for now. The core app should be working with useState.
 
-- [ X ] Implement date in calendar week and calendar day
+- [X] Implement date in calendar week and calendar day
 - [ ] manage hours
 - [ ] Add features to small calendar (onClick change month calendar, onClick change week calendar, onDoubleClick change day calendar and switch to day calendar, week view css, current day always present, css when date change)
 - [ ] Add Year view
