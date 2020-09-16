@@ -5,7 +5,7 @@ import Sidenav from "./Sidenav/Sidenav";
 import Settings from "./Settings/Settings";
 
 function FullCalendar({ calendar }) {
-  const [calendarState, setCalendarState] = calendar;
+  const [calendarState] = calendar;
   const { showSettings, showSidenav } = calendarState.options;
 
   if (showSettings) {

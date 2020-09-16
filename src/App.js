@@ -25,7 +25,6 @@ function App() {
   } else {
     gridTemplateColumns = calendarState.options.showSidenav ? "260px 1fr": "0px 1fr"
   } // find a better way to do this ?
-
   return (
     <div className="App">
       <Grid

@@ -10,14 +10,14 @@ import {
 
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
-function weekIsBetweenTwoMonths({ calendar }) {
-  const [calendarState] = calendar;
-  const { date } = calendarState;
-  const weekStartOf = moment(date).startOf("week");
-  const weekEndOf = moment(date).endOf("week");
+// function weekIsBetweenTwoMonths({ calendar }) {
+//   const [calendarState] = calendar;
+//   const { date } = calendarState;
+//   const weekStartOf = moment(date).startOf("week");
+//   const weekEndOf = moment(date).endOf("week");
 
-  return moment(weekStartOf).isSame(weekEndOf, "month");
-}
+//   return moment(weekStartOf).isSame(weekEndOf, "month");
+// }
 
 
 function LeftSide({ calendar }) {

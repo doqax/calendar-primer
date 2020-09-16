@@ -1,7 +1,6 @@
 import React from "react";
-// import moment from "moment/min/moment-with-locales";
-
-import CalendarRows from "./CalendarRows";
+import Days from "./Days";
+import { Grid } from "@primer/components";
 
 // moment.updateLocale("fr", {
 //   week: {
@@ -12,11 +11,9 @@ import CalendarRows from "./CalendarRows";
 function CalendarMonth({ calendar }) {
   return (
     <div className="calendar">
-      <table cellSpacing="0">
-        <tbody>
-          <CalendarRows calendar={calendar} />
-        </tbody>
-      </table>
+      <Grid gridTemplateColumns="repeat(7, 1fr)" height="100%">
+        <Days calendar={calendar} />
+      </Grid>
     </div>
   );
 }
