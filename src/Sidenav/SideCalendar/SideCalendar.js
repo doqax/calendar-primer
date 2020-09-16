@@ -7,12 +7,14 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 import OneLetterWeekDay from "../../utils/OneLetterWeekDay";
 
-import SmallCalendarRows from "./SmallCalendarRows";
+import SideCalendarRows from "./SideCalendarRows";
 
 function SmallCalendar({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
   const { sideCalendarDate, date } = calendarState;
-  const [dateSelected, setDateSelected] = useState(moment(date).startOf("month")); // used for focus effect on sideDate
+  const [dateSelected, setDateSelected] = useState(
+    moment(date).startOf("month")
+  ); // used for focus effect on sideDate
   const monthYear = moment(sideCalendarDate).format("MMM YYYY");
 
   return (
@@ -55,7 +57,10 @@ function SmallCalendar({ calendar }) {
       >
         <OneLetterWeekDay />
       </Grid>
-      <SmallCalendarRows calendar={calendar} sideSelected={[dateSelected, setDateSelected]}  />
+      <SideCalendarRows
+        calendar={calendar}
+        sideSelected={[dateSelected, setDateSelected]}
+      />
     </Box>
   );
 }

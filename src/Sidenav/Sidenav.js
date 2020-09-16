@@ -1,13 +1,11 @@
 import React from "react";
-import SmallCalendar from "./SmallCalendar/SmallCalendar";
+import SideCalendar from "./SideCalendar/SideCalendar";
 import ShowHolidays from "./CalendarOptions/ShowHolidays";
 
 function Sidenav({ calendar }) {
   return (
     <div className="sidebar">
-      <SmallCalendar
-        calendar={calendar}
-      />
+      <SideCalendar calendar={calendar} />
       <ShowHolidays />
     </div>
   );
