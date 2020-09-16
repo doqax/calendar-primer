@@ -8,8 +8,8 @@ import FullCalendar from "./FullCalendar";
 
 function App() {
   const [calendarState, setCalendarState] = useState({
-    date: moment(),
-    sideCalendarDate: moment(),
+    date: moment().startOf("month"),
+    sideCalendarDate: moment().startOf("month"),
     today: moment(),
     options: {
       selected : "month",
