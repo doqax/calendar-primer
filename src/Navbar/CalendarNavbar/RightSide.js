@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Dropdown } from "@primer/components";
-import { GearIcon, ListUnorderedIcon } from "@primer/octicons-react";
+import { GearIcon } from "@primer/octicons-react";
 
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 
@@ -10,24 +10,8 @@ function RightSide({ calendar }) {
 
   return (
     <Box mr={3} ml="auto">
-      <Button
-        mr={3}
-        onClick={() => {
-          setCalendarState({
-            ...calendarState,
-            options: {
-              ...calendarState.options,
-              selected: "agenda"
-            }
-          });
-        }}
-      >
-        <ListUnorderedIcon />
-      </Button>
       <Dropdown overlay={true}>
-        <Dropdown.Button>
-          {capitalizeFirstLetter(selected)}
-        </Dropdown.Button>
+        <Dropdown.Button>{capitalizeFirstLetter(selected)}</Dropdown.Button>
         <Dropdown.Menu direction="sw">
           <Dropdown.Item
             onClick={() => {
@@ -35,8 +19,8 @@ function RightSide({ calendar }) {
                 ...calendarState,
                 options: {
                   ...calendarState.options,
-                  selected: "day"
-                }
+                  selected: "day",
+                },
               });
               document.body.click(); // bug with primer
             }}
@@ -49,8 +33,8 @@ function RightSide({ calendar }) {
                 ...calendarState,
                 options: {
                   ...calendarState.options,
-                  selected: "week"
-                }
+                  selected: "week",
+                },
               });
               document.body.click(); // bug with primer
             }}
@@ -63,13 +47,27 @@ function RightSide({ calendar }) {
                 ...calendarState,
                 options: {
                   ...calendarState.options,
-                  selected: "month"
-                }
+                  selected: "month",
+                },
               });
               document.body.click(); // bug with primer
             }}
           >
             <Box p={1}>Month</Box>
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => {
+              setCalendarState({
+                ...calendarState,
+                options: {
+                  ...calendarState.options,
+                  selected: "agenda",
+                },
+              });
+              document.body.click(); // bug with primer
+            }}
+          >
+            <Box p={1}>Agenda</Box>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
@@ -80,8 +78,8 @@ function RightSide({ calendar }) {
             ...calendarState,
             options: {
               ...calendarState.options,
-              showSettings: true
-            }
+              showSettings: true,
+            },
           });
           document.body.click(); // bug with primer
         }}
