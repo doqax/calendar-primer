@@ -27,6 +27,7 @@ function App() {
   } // find a better way to do this ?
   return (
     <div className="App">
+      <div className="test"></div>
       <Grid
         gridTemplateColumns={gridTemplateColumns}
         gridTemplateRows="65px 1fr"
