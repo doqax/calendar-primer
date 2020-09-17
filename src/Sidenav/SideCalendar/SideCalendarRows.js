@@ -1,9 +1,7 @@
 import React from "react";
 import { Grid } from "@primer/components";
 
-import DaysPreviousMonth from "./DaysPreviousMonth";
-import DaysInMonth from "./DaysInMonth";
-import DaysNextMonth from "./DaysNextMonth";
+import Days from "./Days";
 
 function SmallCalendarRows({ calendar, sideSelected }) {
   return (
@@ -15,9 +13,7 @@ function SmallCalendarRows({ calendar, sideSelected }) {
       pb={6}
       px={3}
     >
-      <DaysPreviousMonth calendar={calendar} sideSelected={sideSelected} />
-      <DaysInMonth calendar={calendar} sideSelected={sideSelected} />
-      <DaysNextMonth calendar={calendar} sideSelected={sideSelected} />
+      <Days calendar={calendar} sideSelected={sideSelected} />
     </Grid>
   );
 }

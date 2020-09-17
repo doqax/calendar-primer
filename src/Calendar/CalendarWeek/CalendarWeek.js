@@ -31,7 +31,7 @@ function getScrollbarWidth() {
 }
 
 function CalendarWeek({ calendar }) {
-  const [calendarState, setCalendarState] = calendar;
+  const [calendarState] = calendar;
   const { date } = calendarState;
   return (
     <div className="calendar--week">

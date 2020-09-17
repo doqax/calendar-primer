@@ -8,8 +8,8 @@ import FullCalendar from "./FullCalendar";
 
 function App() {
   const [calendarState, setCalendarState] = useState({
-    date: moment(),
-    sideCalendarDate: moment(),
+    date: moment().startOf("month"),
+    sideCalendarDate: moment().startOf("month"),
     today: moment(),
     options: {
       selected : "month",
@@ -25,7 +25,6 @@ function App() {
   } else {
     gridTemplateColumns = calendarState.options.showSidenav ? "260px 1fr": "0px 1fr"
   } // find a better way to do this ?
-
   return (
     <div className="App">
       <div className="test"></div>

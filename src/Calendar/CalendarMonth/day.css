@@ -1,0 +1,47 @@
+.calendarMonth--day {
+  position: relative;
+  border: 1px solid #e1e4e8;
+  border-top: none;
+  border-right: none;
+  user-select: none;
+}
+
+.calendarMonth--day.weekend {
+  background-image: linear-gradient(
+    45deg,
+    #fafbfc 25%,
+    #f6f8fa 25%,
+    #f6f8fa 50%,
+    #fafbfc 50%,
+    #fafbfc 75%,
+    #f6f8fa 75%,
+    #f6f8fa 100%
+  );
+  background-size: 11.31px 11.31px;
+}
+
+.calendarMonth--day.weekend.today {
+  background-image: linear-gradient(
+    45deg,
+    #fafbfc 25%,
+    #dbedff 25%,
+    #dbedff 50%,
+    #fafbfc 50%,
+    #fafbfc 75%,
+    #dbedff 75%,
+    #dbedff 100%
+  );
+}
+
+
+.calendarMonth--day.today {
+  background-color: #dbedff;
+}
+
+.calendarMonth--day.blanks {
+  background-color: #f6f8fa;
+}
+
+.center {
+  align-self: center;
+}

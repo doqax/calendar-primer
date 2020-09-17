@@ -3,15 +3,21 @@ import { Text } from "@primer/components";
 import moment from "moment";
 import "./day.css";
 
-// Temporary, refactor all props
-function Day({ day, color, dayColor, date, calendar, sideSelected, weekSelected }) {
+function Day({ calendar, sideSelected, date }) {
   const [calendarState, setCalendarState] = calendar;
+  const { today, sideCalendarDate } = calendarState;
   const { selected, prevSelected } = calendarState.options;
   const [dateSelected, setDateSelected] = sideSelected;
-  const sameDate = moment(dateSelected).isSame(date);
+
+  const isSelectedDay = moment(dateSelected).isSame(date);
+  const isToday = moment(today).isSame(date, "day");
+  const isCurrentMonth = moment(sideCalendarDate).isSame(date, "month");
 
   const handleOnClick = () => {
-    if ((sameDate && selected !== "day") || (!sameDate && selected === "day")) {
+    if (
+      (isSelectedDay && selected !== "day") ||
+      (!isSelectedDay && selected === "day")
+    ) {
       const prevNotDay = selected !== "day" ? selected : prevSelected;
       setCalendarState((state) => ({
         ...state,
@@ -24,7 +30,7 @@ function Day({ day, color, dayColor, date, calendar, sideSelected, weekSelected 
         },
       }));
       setDateSelected(date);
-    } else if (sameDate && selected === "day") {
+    } else if (isSelectedDay && selected === "day") {
       setCalendarState((state) => ({
         ...state,
         options: {
@@ -44,11 +50,12 @@ function Day({ day, color, dayColor, date, calendar, sideSelected, weekSelected 
     }
   };
 
+  const color = isSelectedDay ? "white" : isToday ? "white" : isCurrentMonth ? "gray.8" : "gray.5";
   return (
-    <div className={`smallCalendar--day ${weekSelected ? "week" : ""}`}>
+    <div className={`smallCalendar--day`}>
       <div
-        className={`smallCalendar--day-zone ${dayColor} ${
-          moment(dateSelected).isSame(date) ? "selected" : ""
+        className={`smallCalendar--day-zone ${isToday ? "today" : ""} ${
+          isSelectedDay ? "selected" : ""
         }`}
         onClick={handleOnClick}
       >
@@ -58,9 +65,9 @@ function Day({ day, color, dayColor, date, calendar, sideSelected, weekSelected 
           fontWeight={500}
           my={1}
           fontSize={12}
-          color={dayColor === "today" ? "white" : color}
+          color={color}
         >
-          {day}
+          {date.format("D")}
         </Text>
       </div>
     </div>

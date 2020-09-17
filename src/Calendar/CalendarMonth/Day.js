@@ -1,38 +1,43 @@
 import React from "react";
-import { Absolute, Text, BorderBox } from "@primer/components";
+import { Absolute, Text } from "@primer/components";
 
-function Day(props) {
+import moment from "moment";
+import "./day.css";
 
-  const triggerDay = (e) => {
-    // console.log(selectedDay.date);
-  };
+
+function Day({ calendar, currentDate, showDay }) {
+  const [calendarState] = calendar;
+  const { today, date } = calendarState;
+  const isToday = moment(today).isSame(currentDate, "day");
+  const isCurrentMonth = moment(currentDate).isSame(date, "month");
+  const isWeekend = moment(currentDate).format("d") == 0 || moment(currentDate).format("d") == 6; // 5 for isoDay
+
+  const color = isToday ? "blue.4" : isCurrentMonth ? "gray.9" : "gray.4";
+  const bg = !isCurrentMonth ? "blanks" : isWeekend ? " weekend" : "";
+
 
   return (
-    <td className={props.tableStyle} onClick={triggerDay}>
+    <div className={`calendarMonth--day ${bg} ${isToday ? " today" : ""}`}>
       <Absolute width="100%" m={0} right={0} top={0}>
-        <Text as="p" my={1} fontSize={14} p={0} textAlign="center">
-          {props.header}
+        <Text as="p" my={1} mt={1} fontSize={14} p={0} textAlign="center" color={"gray.9"} fontWeight="bold">
+          {showDay <= 6 && currentDate.format("ddd")}
         </Text>
+        </Absolute>
+        <Absolute width="100%" m={0} right={0} top={0}>
         <Text
           mt={2}
           mb={1}
+          textAlign={"right"}
+          mr={3}
           as="p"
           fontSize={14}
           fontWeight="bold"
-          textAlign="center"
-          color={props.dayColor === "today" ? "blue.4" : "gray.9"}
+          color={color}
         >
-          {props.day}
+          {currentDate.format("D")}
         </Text>
-        {props.isHoliday.length !== 0 && (
-          <BorderBox p={1} mr={1} bg="green.1" borderColor="green.2">
-            <Text as="p" px={2} fontSize={14} my={0}>
-              {props.isHoliday[0].name}
-            </Text>
-          </BorderBox>
-        )}
       </Absolute>
-    </td>
+    </div>
   );
 }
 

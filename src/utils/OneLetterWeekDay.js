@@ -1,20 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { Text } from "@primer/components";
+import moment from "moment";
+import { Text, Tooltip } from "@primer/components";
 
 function OneLetterWeekDay() {
-  let days = "S-M-T-W-T-F-S"; // "M-T-W-T-F-S-S"
-  days = days.split("-");
-  const weekday = days.map((day, i) => (
+  const weekdays = moment.weekdays();
+  
+  const weekday = weekdays.map((day) => (
     <Text
       as="p"
-      key={i}
+      key={day}
       textAlign="center"
       my={1}
       fontSize={14}
       fontWeight="bold"
     >
-      {day}
+      <Tooltip aria-label={day}>{day.charAt(0)}</Tooltip>
     </Text>
   ));
 
