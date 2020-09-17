@@ -1,13 +1,13 @@
 import React from "react";
 import moment from "moment";
 import { BorderBox, Text } from "@primer/components";
-import DayHeader from "../CalendarWeek/DayHeader";
+import DayHeader from "./DayHeader";
 
 function Day({ calendar }) {
   const [calendarState] = calendar;
   const { date } = calendarState;
 
-  const day = moment(date).format("ddd");
+  const day = moment(date).format("dddd");
   const gmt = moment(date).format("ZZ");
   const dayDate = date;
 

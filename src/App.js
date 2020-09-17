@@ -12,7 +12,7 @@ function App() {
     sideCalendarDate: moment().startOf("month"),
     today: moment(),
     options: {
-      selected : "month",
+      selected : "day",
       prevSelected: "month",
       showSidenav: true,
       showSettings: false
