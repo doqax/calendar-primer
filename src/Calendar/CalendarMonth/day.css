@@ -7,7 +7,6 @@
 }
 
 .calendarMonth--day .selectable-day {
-  /* width: 100%; */
   position: absolute;
   right: 0;
   top: 0;

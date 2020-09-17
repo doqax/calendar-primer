@@ -39,7 +39,7 @@ function Day({ calendar, currentDate, showDay }) {
       className={`calendarMonth--day ${bg} ${isToday ? " today" : ""}`}
       onClick={handleEventClick}
     >
-      <Absolute width="100%" m={0} right={0} top={0}>
+      <Absolute ml={2} mt={1} top={0}>
         <Text
           as="p"
           my={1}
@@ -50,7 +50,7 @@ function Day({ calendar, currentDate, showDay }) {
           color={"gray.9"}
           fontWeight="bold"
         >
-          {showDay <= 6 && currentDate.format("ddd")}
+          {showDay <= 6 && currentDate.format("dddd")}
         </Text>
       </Absolute>
       <div className="selectable-day--position">

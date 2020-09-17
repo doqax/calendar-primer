@@ -4,7 +4,7 @@
 }
 
 .smallCalendar--day-zone.selected {
-  background-color: #fb8532;
+  background-color: #79b8ff;
 }
 
 .smallCalendar--day.week {
@@ -17,7 +17,7 @@
 }
 
 .smallCalendar--day-zone:hover {
-  background-color:#ffd1ac;
+  background-color: #dbedff;
 }
 
 .smallCalendar--day-zone.currentMonth:hover {
