@@ -53,7 +53,7 @@ function LeftSide({ calendar }) {
         ml={[1, 1, 8]}
         mr={2}
         onClick={() => {
-          const today = moment();
+          const today = moment().startOf('day');
           setCalendarState({
             ...calendarState,
             date: today,

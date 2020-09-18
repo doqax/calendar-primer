@@ -8,11 +8,9 @@ import "./minutes.css";
 function HoursBox({ date, isSameHour }) {
   let minutes = false;
   if (isSameHour) {
-    console.log(moment(date));
     minutes = parseInt(moment(isSameHour).format("m")) / 60 * 100;
-    console.log(minutes);
   }
-  
+
   return (
     <div className="hour">
       <BorderBox

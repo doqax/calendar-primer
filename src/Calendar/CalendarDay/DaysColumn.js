@@ -1,5 +1,5 @@
 import moment from "moment";
-import React from "react";
+import React, { useEffect } from "react";
 
 import HoursBox from "./HoursBox";
 
@@ -16,6 +16,16 @@ function DaysColumn({ calendar }) {
 
     return false;
   };
+
+  useEffect(() => {
+    const updateMinutes = setInterval(() => {
+      setCalendarState({
+        ...calendarState,
+        today: moment()
+      })
+    }, 60000);
+    return () => clearInterval(updateMinutes);
+  });
 
   const days = [];
   for (let i = 0; i <= 23; i++) {
