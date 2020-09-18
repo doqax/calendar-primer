@@ -12,7 +12,6 @@ function Day({ calendar, sideSelected, date }) {
   const isSelectedDay = moment(dateSelected).isSame(date);
   const isToday = moment(today).isSame(date, "day");
   const isCurrentMonth = moment(sideCalendarDate).isSame(date, "month");
-
   const handleOnClick = () => {
     if (
       (isSelectedDay && selected !== "day") ||
@@ -40,6 +39,7 @@ function Day({ calendar, sideSelected, date }) {
       }));
     } else {
       setCalendarState((state) => ({
+        ...state,
         date: moment(date),
         sideCalendarDate: moment(date),
         options: {

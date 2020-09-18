@@ -8,26 +8,17 @@ import DaysColumn from "./DaysColumn";
 import "./index.css";
 
 function getScrollbarWidth() {
-
-  // Creating invisible container
-  const outer = document.createElement('div');
-  outer.style.visibility = 'hidden';
-  outer.style.overflow = 'scroll'; // forcing scrollbar to appear
-  outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+  const outer = document.createElement("div");
+  outer.style.visibility = "hidden";
+  outer.style.overflow = "scroll";
+  outer.style.msOverflowStyle = "scrollbar";
   document.body.appendChild(outer);
-
-  // Creating inner element and placing it in the container
-  const inner = document.createElement('div');
+  const inner = document.createElement("div");
   outer.appendChild(inner);
-
-  // Calculating difference between container's full width and the child width
-  const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-
-  // Removing temporary elements from the DOM
+  const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
   outer.parentNode.removeChild(outer);
 
   return scrollbarWidth;
-
 }
 
 function CalendarWeek({ calendar }) {
@@ -37,9 +28,12 @@ function CalendarWeek({ calendar }) {
     <div className="calendar--week">
       <div className="daysHeader">
         <Box paddingRight={[0, 0, getScrollbarWidth()]}>
-        <Grid gridTemplateColumns="60px repeat(7, 1fr)" backgroundColor="white">
-          <DaysHeader date={date} />
-        </Grid>
+          <Grid
+            gridTemplateColumns="60px repeat(7, 1fr)"
+            backgroundColor="white"
+          >
+            <DaysHeader date={date} />
+          </Grid>
         </Box>
       </div>
       <div className="calendar--week-time">
