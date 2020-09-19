@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import { Box, Flex, Text, Button, ButtonGroup, Grid } from "@primer/components";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
@@ -12,10 +12,12 @@ import SideCalendarRows from "./SideCalendarRows";
 function SmallCalendar({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
   const { sideCalendarDate, date } = calendarState;
-  const [dateSelected, setDateSelected] = useState(
-    dayjs(date).startOf("month")
-  ); // used for focus effect on sideDate
+  const [dateSelected, setDateSelected] = useState(dayjs(date)); // used for focus effect on sideDate
   const monthYear = dayjs(sideCalendarDate).format("MMM YYYY");
+
+  useEffect(() => {
+    setDateSelected(calendarState.date)
+  }, [calendarState]);
 
   return (
     <Box mt={2} mr={2} ml={3}>

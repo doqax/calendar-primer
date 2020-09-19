@@ -6,8 +6,8 @@ import FullCalendar from "./FullCalendar";
 
 function App() {
   const [calendarState, setCalendarState] = useState({
-    date: dayjs().startOf("month"),
-    sideCalendarDate: dayjs().startOf("month"),
+    date: dayjs(),
+    sideCalendarDate: dayjs(),
     today: dayjs(),
     options: {
       selected : "week",

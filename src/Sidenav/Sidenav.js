@@ -6,7 +6,7 @@ function Sidenav({ calendar }) {
   return (
     <div className="sidebar">
       <SideCalendar calendar={calendar} />
-      <ShowHolidays />
+      {/* <ShowHolidays /> */}
     </div>
   );
 }
