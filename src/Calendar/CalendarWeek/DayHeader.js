@@ -1,7 +1,7 @@
 import React from "react";
 import { BorderBox, Text, Sticky } from "@primer/components";
 
-import moment from "moment";
+import dayjs from "dayjs";
 
 function DayHeader({ day, dayDate, calendar }) {
   const [calendarState, setCalendarState] = calendar;
@@ -47,7 +47,7 @@ function DayHeader({ day, dayDate, calendar }) {
             fontSize={20}
             fontWeight={500}
           >
-              {moment(dayDate).format("D")}
+              {dayjs(dayDate).format("D")}
           </Text>
           </div>
         </Sticky>

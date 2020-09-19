@@ -1,15 +1,15 @@
 import React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import Day from "./Day";
 
 function Days({ calendar, sideSelected }) {
   const [calendarState] = calendar;
   const { sideCalendarDate } = calendarState;
 
-  const startOfFirstWeek = moment(sideCalendarDate)
+  const startOfFirstWeek = dayjs(sideCalendarDate)
     .startOf("month")
     .startOf("week");
-  const endOfLastWeek = moment(sideCalendarDate)
+  const endOfLastWeek = dayjs(sideCalendarDate)
     .startOf("month")
     .add(1, "month")
     .subtract(1, "days")
@@ -19,10 +19,10 @@ function Days({ calendar, sideSelected }) {
     sideCalendarDate.diff(startOfFirstWeek, "day") +
     endOfLastWeek.diff(sideCalendarDate, "day");
 
-  let currentDate = moment(startOfFirstWeek).subtract(1, "day");
+  let currentDate = dayjs(startOfFirstWeek).subtract(1, "day");
   const days = [];
   for (let i = 0; i <= sumDays; i++) {
-    currentDate = moment(currentDate).add(1, "day");
+    currentDate = dayjs(currentDate).add(1, "day");
     days.push(
       <Day
         date={currentDate}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "@primer/components";
-import moment from "moment";
+import dayjs from "dayjs";
 import "./day.css";
 
 function Day({ calendar, sideSelected, date }) {
@@ -9,9 +9,9 @@ function Day({ calendar, sideSelected, date }) {
   const { selected, prevSelected } = calendarState.options;
   const [dateSelected, setDateSelected] = sideSelected;
 
-  const isSelectedDay = moment(dateSelected).isSame(date);
-  const isToday = moment(today).isSame(date, "day");
-  const isCurrentMonth = moment(sideCalendarDate).isSame(date, "month");
+  const isSelectedDay = dayjs(dateSelected).isSame(date);
+  const isToday = dayjs(today).isSame(date, "day");
+  const isCurrentMonth = dayjs(sideCalendarDate).isSame(date, "month");
   const handleOnClick = () => {
     if (
       (isSelectedDay && selected !== "day") ||
@@ -20,8 +20,8 @@ function Day({ calendar, sideSelected, date }) {
       const prevNotDay = selected !== "day" ? selected : prevSelected;
       setCalendarState((state) => ({
         ...state,
-        date: moment(date),
-        sideCalendarDate: moment(date),
+        date: dayjs(date),
+        sideCalendarDate: dayjs(date),
         options: {
           ...state.options,
           selected: "day",
@@ -40,8 +40,8 @@ function Day({ calendar, sideSelected, date }) {
     } else {
       setCalendarState((state) => ({
         ...state,
-        date: moment(date),
-        sideCalendarDate: moment(date),
+        date: dayjs(date),
+        sideCalendarDate: dayjs(date),
         options: {
           ...state.options,
         },

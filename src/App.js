@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-
-import moment from "moment";
 import { Grid } from "@primer/components";
-
+import dayjs from "dayjs";
 import Navbar from "./Navbar/Navbar";
 import FullCalendar from "./FullCalendar";
 
 function App() {
   const [calendarState, setCalendarState] = useState({
-    date: moment().startOf("month"),
-    sideCalendarDate: moment().startOf("month"),
-    today: moment(),
+    date: dayjs().startOf("month"),
+    sideCalendarDate: dayjs().startOf("month"),
+    today: dayjs(),
     options: {
       selected : "week",
       prevSelected: "month",

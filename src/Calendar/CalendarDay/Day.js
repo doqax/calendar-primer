@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import { BorderBox, Text } from "@primer/components";
 import DayHeader from "./DayHeader";
 
@@ -7,8 +7,8 @@ function Day({ calendar }) {
   const [calendarState] = calendar;
   const { date } = calendarState;
 
-  const day = moment(date).format("dddd");
-  const gmt = moment(date).format("ZZ");
+  const day = dayjs(date).format("dddd");
+  const gmt = dayjs(date).format("ZZ");
   const dayDate = date;
 
   return (

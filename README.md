@@ -40,7 +40,7 @@ In progress
 - [X] useReducer and refactor current way of dealing with state (or use redux or something)
 - [X] Implement date in calendar week and calendar day
 - [X] Add features to small calendar (onClick change month calendar, onClick change week calendar, onDoubleClick change day calendar and switch to day calendar, week view css, current day always present, css when date change)
-- [ ] manage hours
+- [X] manage hours
 - [ ] Add routing (should have done that since the beginning)
 - [ ] Add Year view
 - [ ] Add Other Calendars features, disable view of holidays for example

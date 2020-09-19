@@ -1,14 +1,14 @@
 import React from "react";
 import { BorderBox } from "@primer/components";
 
-import moment from "moment";
+import dayjs from "dayjs";
 
 import "./minutes.css";
 
 function HoursBox({ date, isSameHour }) {
   let minutes = false;
   if (isSameHour) {
-    minutes = parseInt(moment(isSameHour).format("m")) / 60 * 100;
+    minutes = parseInt(dayjs(isSameHour).format("m")) / 60 * 100;
   }
 
   return (

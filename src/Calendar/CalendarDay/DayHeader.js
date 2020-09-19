@@ -1,7 +1,7 @@
 import React from "react";
 import { BorderBox, Text, Sticky } from "@primer/components";
 
-import moment from "moment";
+import dayjs from "dayjs";
 
 function DayHeader({ day, dayDate, textAlign }) {
   return (
@@ -19,7 +19,7 @@ function DayHeader({ day, dayDate, textAlign }) {
           {day.toUpperCase()}
         </Text>
         <Text as={"p"}  marginTop={1} textAlign={textAlign} fontSize={20} fontWeight={500}>
-          {moment(dayDate).format("DD-MM")}
+          {dayjs(dayDate).format("DD-MM")}
         </Text>
       </Sticky>
     </BorderBox>

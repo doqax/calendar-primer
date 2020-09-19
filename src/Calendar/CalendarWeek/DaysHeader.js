@@ -1,5 +1,5 @@
 import React from 'react'
-import moment from "moment";
+import dayjs from "dayjs";
 import { BorderBox, Text } from "@primer/components";
 
 import DayHeader from "./DayHeader";
@@ -7,10 +7,10 @@ import DayHeader from "./DayHeader";
 function DaysHeader({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
   const { date } = calendarState;
-  const weekDaysShort = moment.weekdaysShort();
-  const startOfWeek = moment(date).startOf("week");
+  const weekDaysShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; // temporary
+  const startOfWeek = dayjs(date).startOf("week");
   let dayDate = startOfWeek;
-  const gmt = moment(date).format("ZZ");
+  const gmt = dayjs(date).format("ZZ");
   let days = [];
   days.push(
     <BorderBox
@@ -28,7 +28,7 @@ function DaysHeader({ calendar }) {
   );
   weekDaysShort.forEach((day, i) => {
     days.push(<DayHeader key={i} day={day} dayDate={dayDate} calendar={calendar} />);
-    dayDate = moment(dayDate).add(1, "d");
+    dayDate = dayjs(dayDate).add(1, "d");
   });
 
   return days;

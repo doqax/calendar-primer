@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import { Box, Button, Link } from "@primer/components";
 import {
   ChevronLeftIcon,
@@ -53,7 +53,7 @@ function LeftSide({ calendar }) {
         ml={[1, 1, 8]}
         mr={2}
         onClick={() => {
-          const today = moment().startOf('day');
+          const today = dayjs().startOf('day');
           setCalendarState({
             ...calendarState,
             date: today,
@@ -66,7 +66,7 @@ function LeftSide({ calendar }) {
       <Box ml={3} mr={1}>
         <Button
           onClick={() => {
-            const previous = moment(date).subtract(1, selected);
+            const previous = dayjs(date).subtract(1, selected);
             setCalendarState({
               ...calendarState,
               date: previous,
@@ -80,7 +80,7 @@ function LeftSide({ calendar }) {
       <Box mr={3} ml={1}>
         <Button
           onClick={() => {
-            const next = moment(date).add(1, selected);
+            const next = dayjs(date).add(1, selected);
             setCalendarState({
               ...calendarState,
               date: next,
@@ -92,7 +92,7 @@ function LeftSide({ calendar }) {
         </Button>
       </Box>
       <Box mr={3} ml={1}>
-        <h3>{capitalizeFirstLetter(moment(date).format("MMMM YYYY"))}</h3>
+        <h3>{capitalizeFirstLetter(dayjs(date).format("MMMM YYYY"))}</h3>
       </Box>
     </>
   );

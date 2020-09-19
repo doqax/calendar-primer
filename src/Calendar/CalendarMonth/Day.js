@@ -1,17 +1,17 @@
 import React from "react";
 import { Absolute, Text } from "@primer/components";
 
-import moment from "moment";
+import dayjs from "dayjs";
 import "./day.css";
 
 function Day({ calendar, currentDate, showDay }) {
   const [calendarState, setCalendarState] = calendar;
   const { today, date } = calendarState;
-  const isToday = moment(today).isSame(currentDate, "day");
-  const isCurrentMonth = moment(currentDate).isSame(date, "month");
+  const isToday = dayjs(today).isSame(currentDate, "day");
+  const isCurrentMonth = dayjs(currentDate).isSame(date, "month");
   const isWeekend =
-    parseInt(moment(currentDate).format("d")) === 0 ||
-    parseInt(moment(currentDate).format("d")) === 6; // 5 for isoDay
+    parseInt(dayjs(currentDate).format("d")) === 0 ||
+    parseInt(dayjs(currentDate).format("d")) === 6; // 5 for isoDay
 
   const color = isToday ? "blue.4" : isCurrentMonth ? "gray.9" : "gray.4";
   const bg = !isCurrentMonth ? "blanks" : isWeekend ? " weekend" : "";

@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 import React, { useEffect } from "react";
 
 import HoursBox from "./HoursBox";
@@ -7,8 +7,8 @@ function DaysColumn({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
 
   const isSameHour = (i) => {
-    if (moment(calendarState.date).isSame(calendarState.today, "day")) {
-      if(i === parseInt(moment(calendarState.today).format("H"))) {
+    if (dayjs(calendarState.date).isSame(calendarState.today, "day")) {
+      if(i === parseInt(dayjs(calendarState.today).format("H"))) {
         return calendarState.today;
       }
       return false;
@@ -21,7 +21,7 @@ function DaysColumn({ calendar }) {
     const updateMinutes = setInterval(() => {
       setCalendarState({
         ...calendarState,
-        today: moment()
+        today: dayjs()
       })
     }, 60000);
     return () => clearInterval(updateMinutes);
@@ -32,7 +32,7 @@ function DaysColumn({ calendar }) {
     days.push(
       <HoursBox
         key={i}
-        date={moment(calendarState.date).add(i, "hour")}
+        date={dayjs(calendarState.date).add(i, "hour")}
         isSameHour={isSameHour(i)}
       />
     );

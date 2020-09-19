@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import { Box, Flex, Text, Button, ButtonGroup, Grid } from "@primer/components";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
 
@@ -13,9 +13,9 @@ function SmallCalendar({ calendar }) {
   const [calendarState, setCalendarState] = calendar;
   const { sideCalendarDate, date } = calendarState;
   const [dateSelected, setDateSelected] = useState(
-    moment(date).startOf("month")
+    dayjs(date).startOf("month")
   ); // used for focus effect on sideDate
-  const monthYear = moment(sideCalendarDate).format("MMM YYYY");
+  const monthYear = dayjs(sideCalendarDate).format("MMM YYYY");
 
   return (
     <Box mt={2} mr={2} ml={3}>
@@ -26,7 +26,7 @@ function SmallCalendar({ calendar }) {
         <ButtonGroup display="block" mt={2} ml="auto" mr={2}>
           <Button
             onClick={() => {
-              const previous = moment(sideCalendarDate).subtract(1, "month");
+              const previous = dayjs(sideCalendarDate).subtract(1, "month");
               setCalendarState({
                 ...calendarState,
                 sideCalendarDate: previous,
@@ -37,7 +37,7 @@ function SmallCalendar({ calendar }) {
           </Button>
           <Button
             onClick={() => {
-              const next = moment(sideCalendarDate).add(1, "month");
+              const next = dayjs(sideCalendarDate).add(1, "month");
               setCalendarState({
                 ...calendarState,
                 sideCalendarDate: next,
