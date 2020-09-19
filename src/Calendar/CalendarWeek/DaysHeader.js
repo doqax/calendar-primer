@@ -4,7 +4,9 @@ import { BorderBox, Text } from "@primer/components";
 
 import DayHeader from "./DayHeader";
 
-function DaysHeader({ date }) {
+function DaysHeader({ calendar }) {
+  const [calendarState, setCalendarState] = calendar;
+  const { date } = calendarState;
   const weekDaysShort = moment.weekdaysShort();
   const startOfWeek = moment(date).startOf("week");
   let dayDate = startOfWeek;
@@ -25,7 +27,7 @@ function DaysHeader({ date }) {
     </BorderBox>
   );
   weekDaysShort.forEach((day, i) => {
-    days.push(<DayHeader key={i} day={day} dayDate={dayDate} textAlign={"center"} />);
+    days.push(<DayHeader key={i} day={day} dayDate={dayDate} calendar={calendar} />);
     dayDate = moment(dayDate).add(1, "d");
   });
 

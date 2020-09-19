@@ -32,7 +32,7 @@ function CalendarWeek({ calendar }) {
             gridTemplateColumns="60px repeat(7, 1fr)"
             backgroundColor="white"
           >
-            <DaysHeader date={date} />
+            <DaysHeader calendar={calendar} />
           </Grid>
         </Box>
       </div>
