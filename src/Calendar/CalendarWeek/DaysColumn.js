@@ -1,21 +1,40 @@
-import React from "react";
-import { BorderBox, Text } from "@primer/components";
+import moment from "moment";
+import React, { useEffect } from "react";
 
-function DaysColumn() {
+import HoursBox from "../CalendarDay/HoursBox";
+
+function DaysColumn({ calendar, currentDate }) {
+  const [calendarState, setCalendarState] = calendar;
+
+  const isSameHour = (i) => {
+    if (moment(currentDate).isSame(calendarState.today, "day")) {
+      if(i === parseInt(moment(calendarState.today).format("H"))) {
+        return calendarState.today;
+      }
+      return false;
+    }
+
+    return false;
+  };
+
+  useEffect(() => {
+    const updateMinutes = setInterval(() => {
+      setCalendarState({
+        ...calendarState,
+        today: moment()
+      })
+    }, 60000);
+    return () => clearInterval(updateMinutes);
+  }, [calendarState, setCalendarState]);
+
   const days = [];
   for (let i = 0; i <= 23; i++) {
     days.push(
-      <BorderBox
-        height={50}
+      <HoursBox
         key={i}
-        borderRadius={0}
-        borderWidth={1}
-        borderTopWidth={1}
-        borderBottomWidth={0}
-        borderRightWidth={0}
-      >
-        <Text as={"p"} mr={2} fontSize={12} textAlign="right"></Text>
-      </BorderBox>
+        date={moment(currentDate).add(i, "hour")}
+        isSameHour={isSameHour(i)}
+      />
     );
   }
 

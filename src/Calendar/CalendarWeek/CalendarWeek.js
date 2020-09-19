@@ -3,7 +3,7 @@ import { Grid, Box } from "@primer/components";
 
 import Hours from "./Hours";
 import DaysHeader from "./DaysHeader";
-import DaysColumn from "./DaysColumn";
+import WeekColumns from "./WeekColumns";
 
 import "./index.css";
 
@@ -39,13 +39,7 @@ function CalendarWeek({ calendar }) {
       <div className="calendar--week-time">
         <Grid gridTemplateColumns="60px repeat(7, 1fr)">
           <Hours />
-          <DaysColumn />
-          <DaysColumn />
-          <DaysColumn />
-          <DaysColumn />
-          <DaysColumn />
-          <DaysColumn />
-          <DaysColumn />
+          <WeekColumns calendar={calendar} />
         </Grid>
       </div>
     </div>

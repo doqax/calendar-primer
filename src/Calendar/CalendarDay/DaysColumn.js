@@ -8,7 +8,7 @@ function DaysColumn({ calendar }) {
 
   const isSameHour = (i) => {
     if (moment(calendarState.date).isSame(calendarState.today, "day")) {
-      if(i == moment(calendarState.today).format("H")) {
+      if(i === parseInt(moment(calendarState.today).format("H"))) {
         return calendarState.today;
       }
       return false;
@@ -25,7 +25,7 @@ function DaysColumn({ calendar }) {
       })
     }, 60000);
     return () => clearInterval(updateMinutes);
-  });
+  }, [calendarState, setCalendarState]);
 
   const days = [];
   for (let i = 0; i <= 23; i++) {
