@@ -5,7 +5,7 @@ import { BorderBox, Text } from "@primer/components";
 import DayHeader from "./DayHeader";
 
 function DaysHeader({ calendar }) {
-  const [calendarState, setCalendarState] = calendar;
+  const [calendarState] = calendar;
   const { date } = calendarState;
   const weekDaysShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]; // temporary
   const startOfWeek = dayjs(date).startOf("week");
