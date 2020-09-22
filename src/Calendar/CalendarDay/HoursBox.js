@@ -1,11 +1,9 @@
 import React from "react";
 import { BorderBox } from "@primer/components";
-
 import dayjs from "dayjs";
-
 import "./minutes.css";
 
-function HoursBox({ date, isSameHour }) {
+function HoursBox({ date, isSameHour, children }) {
   let minutes = false;
   if (isSameHour) {
     minutes = parseInt(dayjs(isSameHour).format("m")) / 60 * 100;
@@ -23,6 +21,7 @@ function HoursBox({ date, isSameHour }) {
         onClick={() => console.log(date)}
       >
         {isSameHour && (<div className="minutes" style={{top: `${minutes}%`}}></div>)}
+        {children}
       </BorderBox>
     </div>
   );

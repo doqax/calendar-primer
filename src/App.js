@@ -10,7 +10,7 @@ function App() {
     sideCalendarDate: dayjs(),
     today: dayjs(),
     options: {
-      selected : "week",
+      selected : "day",
       prevSelected: "month",
       showSidenav: true,
       showSettings: false
