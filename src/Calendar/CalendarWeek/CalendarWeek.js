@@ -17,7 +17,6 @@ function getScrollbarWidth() {
   outer.appendChild(inner);
   const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
   outer.parentNode.removeChild(outer);
-
   return scrollbarWidth;
 }
 
@@ -25,7 +24,7 @@ function CalendarWeek({ calendar }) {
   return (
     <div className="calendar--week">
       <div className="daysHeader">
-        <Box paddingRight={[0, 0, getScrollbarWidth()]}>
+        <Box paddingRight={[0, 0, `${getScrollbarWidth()}px`]}>
           <Grid
             gridTemplateColumns="60px repeat(7, 1fr)"
             backgroundColor="white"
